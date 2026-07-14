@@ -154,7 +154,7 @@
       };
 
       if (!FORM_ENDPOINT) {
-        statusEl.innerHTML = 'Thanks! Your form is being connected to our inbox. Meanwhile, please email us at <a href="mailto:hello@sratech.net">hello@sratech.net</a>.';
+        statusEl.innerHTML = 'Thanks! Your form is being connected to our inbox. Meanwhile, please email us at <a href="mailto:contact@sratech.net">contact@sratech.net</a>.';
         statusEl.classList.add('ok');
         return;
       }
@@ -174,7 +174,7 @@
             throw new Error('failed');
           }
         }).catch(function () {
-          statusEl.innerHTML = 'Something went wrong. Please email us at <a href="mailto:hello@sratech.net">hello@sratech.net</a>.';
+          statusEl.innerHTML = 'Something went wrong. Please email us at <a href="mailto:contact@sratech.net">contact@sratech.net</a>.';
           statusEl.classList.add('err');
         }).finally(function () {
           btn.disabled = false; btn.textContent = 'Send request';
