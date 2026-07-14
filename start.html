@@ -87,9 +87,10 @@
 
   <script src="locations.js"></script>
   <script>
-    // ===== Backend endpoint (FormSubmit — no signup). Set your email below. =====
-    // Submissions are emailed to this address. Leave "" to disable live sending.
-    const FORM_ENDPOINT = ""; // e.g. "https://formsubmit.co/ajax/you@example.com"
+    // ===== Backend endpoint. Paste your Formspree form URL below. =====
+    // Get it free at formspree.io → create form → copy the endpoint.
+    // Leave "" to keep the form in "not connected yet" mode.
+    const FORM_ENDPOINT = ""; // e.g. "https://formspree.io/f/xxxxxxxx"
 
     // ---- Dependent dropdowns ----
     const countrySel = document.getElementById('country');
@@ -163,9 +164,8 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)
-      }).then(function (r) { return r.json(); })
-        .then(function (res) {
-          if (res.success === 'true' || res.success === true) {
+      }).then(function (r) {
+          if (r.ok) {
             form.reset();
             stateSel.disabled = true; citySel.disabled = true;
             statusEl.textContent = 'Thank you! Your request has been sent. We\'ll get back to you within one business day.';
