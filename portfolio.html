@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — SRATECH</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">SRA<span>TECH</span> <span class="dot">•</span></a>
+      <ul class="nav-links" id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <button class="menu-btn" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </div>
+  </header>
+
+  <section class="hero" style="padding-bottom:40px;">
+    <div class="container">
+      <p class="eyebrow">Our Work</p>
+      <h1>Projects that <span class="blue">prove the point.</span></h1>
+      <p>A selection of work we're proud of — real problems, real solutions, measurable outcomes.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:20px;">
+    <div class="container">
+      <div class="grid grid-2">
+        <div class="card"><span class="num">ShopFlow — E-commerce</span><h3>Headless commerce rebuild</h3><p>A retail brand's slow store was losing mobile sales. We rebuilt it on a headless stack for speed.</p><span class="result">↗ 42% increase in mobile conversions</span><div class="tags"><span class="tag">Next.js</span><span class="tag">Shopify</span><span class="tag">Vercel</span></div></div>
+        <div class="card"><span class="num">TrackMate — Logistics</span><h3>Fleet tracking mobile app</h3><p>Manual dispatch was error-prone. We built a real-time driver & tracking app for the field team.</p><span class="result">↗ 30% faster deliveries</span><div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Maps API</span></div></div>
+        <div class="card"><span class="num">CloudLift — SaaS</span><h3>Legacy cloud migration</h3><p>Aging on-prem servers were costly and fragile. We migrated everything to a scalable cloud setup.</p><span class="result">↗ 55% lower infra cost</span><div class="tags"><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">Terraform</span></div></div>
+        <div class="card"><span class="num">OperaCore — Manufacturing</span><h3>Custom ERP platform</h3><p>Disconnected spreadsheets slowed operations. We delivered a unified ERP for inventory & orders.</p><span class="result">↗ 3x faster reporting</span><div class="tags"><span class="tag">.NET</span><span class="tag">SQL Server</span><span class="tag">Azure</span></div></div>
+        <div class="card"><span class="num">InsightDesk — Analytics</span><h3>SaaS analytics dashboard</h3><p>A startup needed live product metrics for its customers. We built a real-time analytics dashboard.</p><span class="result">↗ 20% higher retention</span><div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span></div></div>
+        <div class="card"><span class="num">CareSync — Healthcare</span><h3>Patient portal</h3><p>A clinic needed secure appointment & records access. We built a HIPAA-conscious patient portal.</p><span class="result">↗ 60% fewer phone bookings</span><div class="tags"><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">AWS</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="foot-bottom">© 2026 SRATECH. All rights reserved. — Built to scale. Engineered to last.</div>
+    </div>
+  </footer>
+</body>
+</html>
