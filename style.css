@@ -52,12 +52,33 @@ header {
 
 /* ===== Hero ===== */
 .hero { padding: 110px 0 90px; }
-.hero-home {
-  background:
-    linear-gradient(to right, rgba(10,10,15,0.92) 0%, rgba(10,10,15,0.6) 45%, rgba(10,10,15,0.2) 100%),
-    linear-gradient(to top, var(--bg) 0%, rgba(10,10,15,0) 35%),
-    url("hero-bg.jpg") right center / cover no-repeat;
+.hero-home { padding: 72px 0 84px; }
+.hero-grid { display: flex; align-items: center; gap: 48px; }
+.hero-copy { flex: 1 1 52%; min-width: 0; }
+.hero-copy .btn { margin-top: 6px; }
+
+/* laptop visual + live code overlay */
+.hero-visual { flex: 1 1 48%; position: relative; container-type: inline-size; }
+.hero-visual > img { width: 100%; display: block; border-radius: 14px; box-shadow: 0 24px 70px rgba(0,0,0,.5); }
+.code-live {
+  position: absolute; left: 40.5%; top: 24.5%; width: 31%; height: 40%;
+  overflow: hidden; border-radius: 4px;
+  background: rgba(4,12,24,0.90);
+  color: #6ee7f9;
+  font-family: "Monaco", "Menlo", monospace;
+  font-size: 2.5cqw; line-height: 1.5;
+  padding: 0.4cqw 0.7cqw;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 84%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 16%, #000 84%, transparent 100%);
 }
+.code-live .code-scroll { animation: codescroll 14s linear infinite; }
+.code-live .code-block > div { white-space: pre; }
+.code-live .k { color: #7db0ff; }
+.code-live .s { color: #82e0aa; }
+.code-live .c { color: #5f8cac; }
+.code-live .p { color: #4fd1e5; font-weight: 700; }
+@keyframes codescroll { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+@media (prefers-reduced-motion: reduce) { .code-live .code-scroll { animation: none; } }
 .eyebrow { color: var(--blue); font-weight: 600; letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 18px; }
 .hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 22px; }
 .hero p { font-size: 1.2rem; color: var(--text-dim); max-width: 620px; margin-bottom: 34px; }
@@ -113,6 +134,29 @@ section { padding: 80px 0; }
 .cta h2 { font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 800; margin-bottom: 16px; }
 .cta p { color: var(--text-dim); margin-bottom: 28px; }
 
+/* ===== Form ===== */
+.form-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; padding: 36px; max-width: 820px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.field { display: flex; flex-direction: column; }
+.field-full { grid-column: 1 / -1; }
+.field label { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 8px; font-weight: 500; }
+.field .req { color: var(--blue-light); }
+.field input, .field select, .field textarea {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+  color: var(--text); padding: 13px 14px; font-size: 0.98rem; font-family: inherit;
+  transition: border-color .2s; width: 100%;
+}
+.field input::placeholder, .field textarea::placeholder { color: #5c5c6a; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--blue); }
+.field select:disabled { opacity: 0.5; cursor: not-allowed; }
+.field textarea { resize: vertical; }
+.form-actions { margin-top: 26px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.form-actions .btn { border: none; }
+.form-status { font-size: 0.95rem; margin: 0; }
+.form-status.ok { color: var(--blue-light); }
+.form-status.err { color: #f87171; }
+.form-status a { color: var(--blue-light); text-decoration: underline; }
+
 /* ===== Footer ===== */
 footer { border-top: 1px solid var(--border); padding: 54px 0 30px; margin-top: 40px; }
 .foot-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 30px; margin-bottom: 40px; }
@@ -125,6 +169,8 @@ footer { border-top: 1px solid var(--border); padding: 54px 0 30px; margin-top: 
 
 /* ===== Responsive ===== */
 @media (max-width: 860px) {
+  .hero-grid { flex-direction: column; gap: 34px; }
+  .hero-visual { width: 100%; order: 2; }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .foot-grid { grid-template-columns: 1fr; }

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start a Project — SRATECH</title>
+  <meta name="description" content="Tell SRATECH about your project. We'll get back to you within one business day.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">SRA<span>TECH</span> <span class="dot">•</span></a>
+      <ul class="nav-links" id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <button class="menu-btn" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:80px 0 30px;">
+    <div class="container">
+      <p class="eyebrow">Start a Project</p>
+      <h1>Tell us about <span class="blue">your project.</span></h1>
+      <p>Fill in the details below and our team will get back to you within one business day.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:10px;">
+    <div class="container">
+      <div class="form-card">
+        <form id="leadForm" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Your full name" required>
+            </div>
+            <div class="field">
+              <label for="number">Phone Number <span class="req">*</span></label>
+              <input type="tel" id="number" name="number" placeholder="e.g. +91 98765 43210" required>
+            </div>
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="field">
+              <label for="country">Country <span class="req">*</span></label>
+              <select id="country" name="country" required>
+                <option value="">Select country</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="state">State / Region <span class="req">*</span></label>
+              <select id="state" name="state" required disabled>
+                <option value="">Select state</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="city">City <span class="req">*</span></label>
+              <select id="city" name="city" required disabled>
+                <option value="">Select city</option>
+              </select>
+            </div>
+            <div class="field field-full">
+              <label for="query">Your Query <span class="req">*</span></label>
+              <textarea id="query" name="query" rows="5" placeholder="Tell us what you'd like to build or automate…" required></textarea>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submitBtn">Send request</button>
+            <p class="form-status" id="formStatus"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="foot-bottom">© 2026 SRATECH. All rights reserved. — Built to scale. Engineered to last.</div>
+    </div>
+  </footer>
+
+  <script src="locations.js"></script>
+  <script>
+    // ===== Backend endpoint (FormSubmit — no signup). Set your email below. =====
+    // Submissions are emailed to this address. Leave "" to disable live sending.
+    const FORM_ENDPOINT = ""; // e.g. "https://formsubmit.co/ajax/you@example.com"
+
+    // ---- Dependent dropdowns ----
+    const countrySel = document.getElementById('country');
+    const stateSel = document.getElementById('state');
+    const citySel = document.getElementById('city');
+
+    function fill(sel, items, placeholder) {
+      sel.innerHTML = '<option value="">' + placeholder + '</option>';
+      items.forEach(function (it) {
+        const o = document.createElement('option');
+        o.value = it; o.textContent = it; sel.appendChild(o);
+      });
+    }
+
+    fill(countrySel, Object.keys(LOCATIONS).sort(function (a, b) {
+      if (a === 'India') return -1; if (b === 'India') return 1; return a.localeCompare(b);
+    }), 'Select country');
+
+    countrySel.addEventListener('change', function () {
+      const c = countrySel.value;
+      stateSel.disabled = true; citySel.disabled = true;
+      fill(stateSel, [], 'Select state'); fill(citySel, [], 'Select city');
+      if (c && LOCATIONS[c]) {
+        fill(stateSel, Object.keys(LOCATIONS[c]).sort(), 'Select state');
+        stateSel.disabled = false;
+      }
+    });
+
+    stateSel.addEventListener('change', function () {
+      const c = countrySel.value, s = stateSel.value;
+      citySel.disabled = true; fill(citySel, [], 'Select city');
+      if (c && s && LOCATIONS[c][s]) {
+        fill(citySel, LOCATIONS[c][s].slice().sort(), 'Select city');
+        citySel.disabled = false;
+      }
+    });
+
+    // ---- Submit ----
+    const form = document.getElementById('leadForm');
+    const statusEl = document.getElementById('formStatus');
+    const btn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      statusEl.className = 'form-status';
+      if (!form.checkValidity()) {
+        statusEl.textContent = 'Please fill in all required fields.';
+        statusEl.classList.add('err');
+        form.reportValidity();
+        return;
+      }
+      const data = {
+        name: form.name.value.trim(),
+        number: form.number.value.trim(),
+        email: form.email.value.trim(),
+        country: form.country.value,
+        state: form.state.value,
+        city: form.city.value,
+        query: form.query.value.trim(),
+        _subject: 'New project enquiry — SRATECH website'
+      };
+
+      if (!FORM_ENDPOINT) {
+        statusEl.innerHTML = 'Thanks! Your form is being connected to our inbox. Meanwhile, please email us at <a href="mailto:hello@sratech.net">hello@sratech.net</a>.';
+        statusEl.classList.add('ok');
+        return;
+      }
+
+      btn.disabled = true; btn.textContent = 'Sending…';
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res.success === 'true' || res.success === true) {
+            form.reset();
+            stateSel.disabled = true; citySel.disabled = true;
+            statusEl.textContent = 'Thank you! Your request has been sent. We\'ll get back to you within one business day.';
+            statusEl.classList.add('ok');
+          } else {
+            throw new Error('failed');
+          }
+        }).catch(function () {
+          statusEl.innerHTML = 'Something went wrong. Please email us at <a href="mailto:hello@sratech.net">hello@sratech.net</a>.';
+          statusEl.classList.add('err');
+        }).finally(function () {
+          btn.disabled = false; btn.textContent = 'Send request';
+        });
+    });
+  </script>
+</body>
+</html>
