@@ -21,3 +21,33 @@
     els.forEach(function (el) { el.classList.add('in'); });
   }
 })();
+
+// Fullscreen circular-reveal (bubble) menu
+(function () {
+  var btn = document.querySelector('.menu-btn');
+  if (!btn) return;
+  btn.innerHTML = '<span></span><span></span>';
+  btn.setAttribute('aria-label', 'Open menu');
+  btn.onclick = null;
+
+  var links = [
+    ['Home', 'index.html'],
+    ['Services', 'services.html'],
+    ['Portfolio', 'portfolio.html'],
+    ['About', 'about.html'],
+    ['Contact', 'index.html#contact']
+  ];
+  var ov = document.createElement('div');
+  ov.className = 'menu-overlay';
+  var html = '<nav>';
+  links.forEach(function (l) { html += '<a href="' + l[1] + '">' + l[0] + '</a>'; });
+  html += '</nav><div class="menu-foot">contact@sratech.net &nbsp;·&nbsp; +91 85889 30331</div>';
+  ov.innerHTML = html;
+  document.body.appendChild(ov);
+
+  function open() { ov.classList.add('open'); btn.classList.add('active'); document.body.classList.add('menu-open'); btn.setAttribute('aria-label', 'Close menu'); }
+  function close() { ov.classList.remove('open'); btn.classList.remove('active'); document.body.classList.remove('menu-open'); btn.setAttribute('aria-label', 'Open menu'); }
+  btn.addEventListener('click', function () { ov.classList.contains('open') ? close() : open(); });
+  ov.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+})();
