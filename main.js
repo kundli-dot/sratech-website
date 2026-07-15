@@ -35,7 +35,7 @@
     ['Services', 'services.html'],
     ['Portfolio', 'portfolio.html'],
     ['About', 'about.html'],
-    ['Contact', 'index.html#contact']
+    ['Contact', 'contact.html']
   ];
   var ov = document.createElement('div');
   ov.className = 'menu-overlay';
