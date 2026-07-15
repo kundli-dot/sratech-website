@@ -385,6 +385,33 @@ body.menu-open header { z-index: 210; }
 body.menu-open .logo, body.menu-open .logo span { color: #fff !important; }
 
 /* ============================================================
+   PORTFOLIO — filterable case-study grid
+   ============================================================ */
+.filter-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 38px; }
+.filter-chip {
+  background: var(--bg-card); border: 1px solid var(--border); color: var(--text-dim);
+  padding: 9px 18px; border-radius: 30px; font-weight: 600; font-size: 0.9rem;
+  font-family: inherit; cursor: pointer; transition: color .2s, border-color .2s, background .2s;
+}
+.filter-chip:hover { color: var(--text); border-color: var(--blue); }
+.filter-chip.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+.work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+.work-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; overflow: hidden;
+  transition: transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s, opacity .3s;
+}
+.work-card:hover { transform: translateY(-6px); border-color: var(--blue); box-shadow: 0 26px 55px -22px rgba(59,130,246,.55); }
+.work-thumb { height: 175px; background: linear-gradient(135deg, var(--g1), var(--g2)); position: relative; display: flex; align-items: flex-end; padding: 18px; }
+.work-thumb::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 82% 18%, rgba(255,255,255,.20), transparent 55%); }
+.work-cat { position: absolute; top: 15px; left: 18px; z-index: 1; background: rgba(0,0,0,.3); color: #fff; font-size: .74rem; font-weight: 600; padding: 5px 12px; border-radius: 20px; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.work-metric { position: relative; z-index: 1; color: #fff; font-weight: 700; font-size: 1.1rem; text-shadow: 0 1px 8px rgba(0,0,0,.3); }
+.work-body { padding: 24px; }
+.work-body h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+.work-body p { color: var(--text-dim); font-size: .95rem; margin-bottom: 16px; }
+.work-card.hide { display: none; }
+@media (max-width: 780px) { .work-grid { grid-template-columns: 1fr; } }
+
+/* ============================================================
    DIRECTOR / FOUNDER CLOSING SECTION
    ============================================================ */
 .director { padding: 96px 0 40px; }

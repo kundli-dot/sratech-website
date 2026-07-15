@@ -51,3 +51,21 @@
   ov.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 })();
+
+// Portfolio category filter
+(function () {
+  var bar = document.getElementById('workFilter');
+  if (!bar) return;
+  var cards = document.querySelectorAll('#workGrid .work-card');
+  bar.addEventListener('click', function (e) {
+    var chip = e.target.closest('.filter-chip');
+    if (!chip) return;
+    bar.querySelectorAll('.filter-chip').forEach(function (c) { c.classList.remove('active'); });
+    chip.classList.add('active');
+    var f = chip.getAttribute('data-filter');
+    cards.forEach(function (card) {
+      var show = f === 'all' || card.getAttribute('data-cat') === f;
+      card.classList.toggle('hide', !show);
+    });
+  });
+})();

@@ -35,13 +35,41 @@
 
   <section style="padding-top:20px;">
     <div class="container">
-      <div class="grid grid-2">
-        <div class="card"><span class="num">ShopFlow — E-commerce</span><h3>Headless commerce rebuild</h3><p>A retail brand's slow store was losing mobile sales. We rebuilt it on a headless stack for speed.</p><span class="result">↗ 42% increase in mobile conversions</span><div class="tags"><span class="tag">Next.js</span><span class="tag">Shopify</span><span class="tag">Vercel</span></div></div>
-        <div class="card"><span class="num">TrackMate — Logistics</span><h3>Fleet tracking mobile app</h3><p>Manual dispatch was error-prone. We built a real-time driver & tracking app for the field team.</p><span class="result">↗ 30% faster deliveries</span><div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Maps API</span></div></div>
-        <div class="card"><span class="num">CloudLift — SaaS</span><h3>Legacy cloud migration</h3><p>Aging on-prem servers were costly and fragile. We migrated everything to a scalable cloud setup.</p><span class="result">↗ 55% lower infra cost</span><div class="tags"><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">Terraform</span></div></div>
-        <div class="card"><span class="num">OperaCore — Manufacturing</span><h3>Custom ERP platform</h3><p>Disconnected spreadsheets slowed operations. We delivered a unified ERP for inventory & orders.</p><span class="result">↗ 3x faster reporting</span><div class="tags"><span class="tag">.NET</span><span class="tag">SQL Server</span><span class="tag">Azure</span></div></div>
-        <div class="card"><span class="num">InsightDesk — Analytics</span><h3>SaaS analytics dashboard</h3><p>A startup needed live product metrics for its customers. We built a real-time analytics dashboard.</p><span class="result">↗ 20% higher retention</span><div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span></div></div>
-        <div class="card"><span class="num">CareSync — Healthcare</span><h3>Patient portal</h3><p>A clinic needed secure appointment & records access. We built a HIPAA-conscious patient portal.</p><span class="result">↗ 60% fewer phone bookings</span><div class="tags"><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">AWS</span></div></div>
+      <div class="filter-bar" id="workFilter">
+        <button class="filter-chip active" data-filter="all">All work</button>
+        <button class="filter-chip" data-filter="ecommerce">E-commerce</button>
+        <button class="filter-chip" data-filter="logistics">Logistics</button>
+        <button class="filter-chip" data-filter="saas">SaaS</button>
+        <button class="filter-chip" data-filter="manufacturing">Manufacturing</button>
+        <button class="filter-chip" data-filter="analytics">Analytics</button>
+        <button class="filter-chip" data-filter="healthcare">Healthcare</button>
+      </div>
+
+      <div class="work-grid" id="workGrid">
+        <article class="work-card" data-cat="ecommerce">
+          <div class="work-thumb" style="--g1:#2563eb;--g2:#0e2a63;"><span class="work-cat">E-commerce</span><span class="work-metric">↗ 42% mobile conversions</span></div>
+          <div class="work-body"><h3>ShopFlow — Headless commerce rebuild</h3><p>A retail brand's slow store was losing mobile sales. We rebuilt it on a headless stack for speed.</p><div class="tags"><span class="tag">Next.js</span><span class="tag">Shopify</span><span class="tag">Vercel</span></div></div>
+        </article>
+        <article class="work-card" data-cat="logistics">
+          <div class="work-thumb" style="--g1:#0ea5e9;--g2:#0c3b5e;"><span class="work-cat">Logistics</span><span class="work-metric">↗ 30% faster deliveries</span></div>
+          <div class="work-body"><h3>TrackMate — Fleet tracking app</h3><p>Manual dispatch was error-prone. We built a real-time driver &amp; tracking app for the field team.</p><div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Maps API</span></div></div>
+        </article>
+        <article class="work-card" data-cat="saas">
+          <div class="work-thumb" style="--g1:#6366f1;--g2:#26236b;"><span class="work-cat">SaaS</span><span class="work-metric">↘ 55% lower infra cost</span></div>
+          <div class="work-body"><h3>CloudLift — Legacy cloud migration</h3><p>Aging on-prem servers were costly and fragile. We migrated everything to a scalable cloud setup.</p><div class="tags"><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">Terraform</span></div></div>
+        </article>
+        <article class="work-card" data-cat="manufacturing">
+          <div class="work-thumb" style="--g1:#3b82f6;--g2:#14306b;"><span class="work-cat">Manufacturing</span><span class="work-metric">↗ 3× faster reporting</span></div>
+          <div class="work-body"><h3>OperaCore — Custom ERP platform</h3><p>Disconnected spreadsheets slowed operations. We delivered a unified ERP for inventory &amp; orders.</p><div class="tags"><span class="tag">.NET</span><span class="tag">SQL Server</span><span class="tag">Azure</span></div></div>
+        </article>
+        <article class="work-card" data-cat="analytics">
+          <div class="work-thumb" style="--g1:#22a3d6;--g2:#123a52;"><span class="work-cat">Analytics</span><span class="work-metric">↗ 20% higher retention</span></div>
+          <div class="work-body"><h3>InsightDesk — Analytics dashboard</h3><p>A startup needed live product metrics for its customers. We built a real-time analytics dashboard.</p><div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span></div></div>
+        </article>
+        <article class="work-card" data-cat="healthcare">
+          <div class="work-thumb" style="--g1:#4f7df0;--g2:#1a2c63;"><span class="work-cat">Healthcare</span><span class="work-metric">↘ 60% fewer phone bookings</span></div>
+          <div class="work-body"><h3>CareSync — Patient portal</h3><p>A clinic needed secure appointment &amp; records access. We built a HIPAA-conscious patient portal.</p><div class="tags"><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">AWS</span></div></div>
+        </article>
       </div>
     </div>
   </section>
