@@ -1,5 +1,5 @@
 /* ===== SRATECH — Global Styles ===== */
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;450;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;450;500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&family=Great+Vibes&display=swap');
 :root {
   --bg: #12111a;
   --bg-card: #1c1b28;
@@ -434,31 +434,37 @@ body.menu-open .logo, body.menu-open .logo span { color: #fff !important; }
   content: ""; position: absolute; left: -10%; top: -30%; width: 45%; height: 160%;
   background: radial-gradient(closest-side, rgba(59,130,246,0.16), transparent 70%); pointer-events: none;
 }
-.director-photo { flex: 0 0 300px; position: relative; z-index: 1; align-self: stretch; display: flex; align-items: flex-end; justify-content: center; }
-.director-photo img {
-  width: 100%; max-width: 300px; height: auto; display: block; position: relative; z-index: 1;
-  filter: drop-shadow(0 22px 45px rgba(0,0,0,.55));
+.director-photo { flex: 0 0 250px; position: relative; z-index: 1; }
+.director-photo > img {
+  width: 250px; height: 312px; object-fit: cover; object-position: center 12%;
+  border-radius: 18px; display: block; border: 1px solid var(--border);
+  box-shadow: 0 22px 50px rgba(0,0,0,.5);
 }
 .director-photo::after {
-  content: ""; position: absolute; left: 50%; bottom: 6%; transform: translateX(-50%);
-  width: 118%; height: 80%; z-index: 0;
-  background: radial-gradient(closest-side, rgba(59,130,246,0.32), transparent 72%); filter: blur(16px);
+  content: ""; position: absolute; inset: -18px; border-radius: 26px; z-index: -1;
+  background: radial-gradient(closest-side, rgba(59,130,246,0.30), transparent 72%); filter: blur(12px);
 }
+.li-badge {
+  position: absolute; top: -12px; right: -12px; z-index: 2;
+  width: 42px; height: 42px; border-radius: 11px; overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,.45); transition: transform .2s;
+}
+.li-badge img { width: 100%; height: 100%; display: block; }
+.li-badge:hover { transform: translateY(-2px) scale(1.06); }
 .director-body { flex: 1; min-width: 0; position: relative; z-index: 1; }
 .thought {
-  font-family: "Sora", sans-serif; font-weight: 700;
-  font-size: clamp(1.7rem, 3.4vw, 2.7rem); line-height: 1.25; letter-spacing: -0.02em;
-  margin: 14px 0 22px; position: relative;
-  background: linear-gradient(120deg, #ffffff 20%, #a9c9ff); -webkit-background-clip: text; background-clip: text; color: transparent;
+  font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 500;
+  font-size: clamp(1.15rem, 2.1vw, 1.55rem); line-height: 1.5; letter-spacing: 0;
+  color: #e7edf7; margin: 12px 0 22px; max-width: 560px;
 }
-.thought::before {
-  content: "\201C"; position: absolute; left: -0.06em; top: -0.5em; font-family: Georgia, serif;
-  font-size: 2.6em; color: var(--blue); opacity: 0.28; -webkit-text-fill-color: var(--blue);
+.sig-name {
+  font-family: "Great Vibes", cursive; font-weight: 400;
+  font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1; color: #fff;
+  margin-bottom: 4px;
 }
-.director-sign { color: var(--text-dim); font-weight: 600; font-size: 1rem; }
-.director-sign strong { color: var(--text); font-weight: 700; }
+.director-role { color: var(--text-dim); font-weight: 600; font-size: 0.95rem; }
 @media (max-width: 780px) {
-  .director-card { flex-direction: column; text-align: center; gap: 34px; padding: 34px 24px; }
-  .director-photo { flex: none; }
-  .thought::before { display: none; }
+  .director-card { flex-direction: column; text-align: center; gap: 40px; padding: 40px 24px 34px; }
+  .director-photo { flex: none; margin: 0 auto; }
+  .thought { margin-left: auto; margin-right: auto; }
 }
