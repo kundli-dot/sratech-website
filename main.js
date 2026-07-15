@@ -69,3 +69,16 @@
     });
   });
 })();
+
+// Chatbot speech-bubble typewriter
+(function () {
+  var el = document.querySelector('.chat-type-text');
+  if (!el) return;
+  var t = "Of course! I'm here to help you anytime.";
+  var i = 0;
+  function tick() {
+    if (i <= t.length) { el.textContent = t.slice(0, i); i++; setTimeout(tick, 55); }
+    else { setTimeout(function () { i = 0; tick(); }, 2500); }
+  }
+  tick();
+})();
