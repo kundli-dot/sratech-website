@@ -201,6 +201,38 @@ section { padding: 80px 0; }
 @keyframes chat-caret { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .ai-anim .blink, .ai-anim .smile svg { animation: none; } }
 
+/* Animated workflow illustration */
+.wf-anim { position: relative; display: block; width: 100%; border-radius: 12px; overflow: hidden; line-height: 0; }
+.wf-anim > img { width: 100%; display: block; border-radius: 0; }
+.wf-anim .blink { position: absolute; background: #0c1a30; border-radius: 50%; transform: scaleY(0); transform-origin: top center; animation: robot-blink 3.4s infinite; }
+.wf-anim .eye-l { left: 45.6%; top: 11.6%; width: 1.8%; height: 3.1%; }
+.wf-anim .eye-r { left: 48.8%; top: 11.6%; width: 1.8%; height: 3.1%; }
+.wf-anim .scov { position: absolute; background: #fcfcfe; }
+.wf-anim .s1c { left: 32.8%; top: 28%; width: 31.7%; height: 10%; }
+.wf-anim .s2c { left: 32.8%; top: 40.7%; width: 31.7%; height: 9.6%; }
+.wf-anim .s3c { left: 32.8%; top: 52.7%; width: 31.7%; height: 9.6%; }
+.wf-anim .s4c { left: 32.8%; top: 65.3%; width: 31.7%; height: 10%; }
+.wf-anim .step { position: absolute; transform-origin: center; transform: scale(0); opacity: 0; animation: stepzoom 6s ease-in-out infinite; }
+.wf-anim .step img { width: 100%; display: block; border-radius: 0; }
+.wf-anim .s1 { left: 33.5%; top: 28.5%; width: 30.3%; }
+.wf-anim .s2 { left: 33.5%; top: 41.2%; width: 30.3%; animation-delay: .5s; }
+.wf-anim .s3 { left: 33.5%; top: 53.2%; width: 30.3%; animation-delay: 1s; }
+.wf-anim .s4 { left: 33.5%; top: 65.8%; width: 30.3%; animation-delay: 1.5s; }
+@keyframes stepzoom { 0% { transform: scale(0); opacity: 0; } 9% { transform: scale(1.07); opacity: 1; } 15% { transform: scale(1); opacity: 1; } 88% { transform: scale(1); opacity: 1; } 96% { transform: scale(0); opacity: 0; } 100% { transform: scale(0); opacity: 0; } }
+.wf-anim .fdot { position: absolute; width: 0.8%; height: 1.1%; margin-left: -0.4%; border-radius: 50%; background: #2f7bf0; box-shadow: 0 0 7px 2px rgba(47,123,240,.65); }
+.wf-anim .fdot.L, .wf-anim .fdot.L2 { left: 24.8%; animation: wf-flowL 2.4s linear infinite; }
+.wf-anim .fdot.R, .wf-anim .fdot.R2 { left: 65.4%; animation: wf-flowR 2.4s linear infinite; }
+.wf-anim .fdot.L2, .wf-anim .fdot.R2 { animation-delay: 1.2s; }
+@keyframes wf-flowL { 0% { top: 19%; opacity: 0; } 12% { opacity: 1; } 88% { opacity: 1; } 100% { top: 57%; opacity: 0; } }
+@keyframes wf-flowR { 0% { top: 14%; opacity: 0; } 12% { opacity: 1; } 88% { opacity: 1; } 100% { top: 57%; opacity: 0; } }
+.wf-anim .gwipe { position: absolute; left: 68.4%; top: 71.8%; width: 18%; height: 12.4%; background: #eef1f8; animation: gwipe 4.2s ease-in-out infinite; }
+@keyframes gwipe { 0% { clip-path: inset(0 0 0 0); } 45% { clip-path: inset(0 0 0 100%); } 90% { clip-path: inset(0 0 0 100%); } 100% { clip-path: inset(0 0 0 0); } }
+@media (prefers-reduced-motion: reduce) {
+  .wf-anim .blink, .wf-anim .step, .wf-anim .fdot, .wf-anim .gwipe { animation: none; }
+  .wf-anim .step { transform: scale(1); opacity: 1; }
+  .wf-anim .scov, .wf-anim .gwipe, .wf-anim .fdot { display: none; }
+}
+
 /* ===== Tool logo chips ===== */
 .tool-chips { display: flex; flex-wrap: wrap; gap: 12px; }
 .tool-chip {
