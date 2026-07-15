@@ -364,20 +364,29 @@ h1, h2, h3 { letter-spacing: -0.02em; }
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 42px;
 }
 .menu-overlay.open { clip-path: circle(160% at calc(100% - 40px) 40px); visibility: visible; }
-.menu-overlay nav { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.menu-overlay nav { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 4px; max-width: 1120px; padding: 0 20px; }
 .menu-overlay a {
-  color: #fff; font-family: "Sora", sans-serif; font-weight: 800;
-  font-size: clamp(2.2rem, 7vw, 4.4rem); line-height: 1.18; letter-spacing: -0.03em;
-  text-decoration: none; opacity: 0; transform: translateY(30px);
-  transition: opacity .5s ease, transform .55s cubic-bezier(.2,.7,.2,1), color .2s;
+  position: relative; color: #fff; font-family: "Sora", sans-serif; font-weight: 800;
+  font-size: clamp(1.5rem, 4.6vw, 3rem); line-height: 1; letter-spacing: -0.02em;
+  text-decoration: none; padding: 12px 26px; border-radius: 60px;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .5s ease, transform .55s cubic-bezier(.2,.7,.2,1);
 }
 .menu-overlay.open a { opacity: 1; transform: none; }
-.menu-overlay.open a:nth-child(1) { transition-delay: .16s; }
-.menu-overlay.open a:nth-child(2) { transition-delay: .24s; }
-.menu-overlay.open a:nth-child(3) { transition-delay: .32s; }
-.menu-overlay.open a:nth-child(4) { transition-delay: .40s; }
-.menu-overlay.open a:nth-child(5) { transition-delay: .48s; }
-.menu-overlay a:hover { color: #cfe0ff; }
+.menu-overlay.open a:nth-child(1) { transition-delay: .14s; }
+.menu-overlay.open a:nth-child(2) { transition-delay: .20s; }
+.menu-overlay.open a:nth-child(3) { transition-delay: .26s; }
+.menu-overlay.open a:nth-child(4) { transition-delay: .32s; }
+.menu-overlay.open a:nth-child(5) { transition-delay: .38s; }
+.menu-overlay a span { position: relative; z-index: 1; display: inline-block; transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
+.menu-overlay a::before {
+  content: ""; position: absolute; inset: 0; border-radius: 60px;
+  background: rgba(255,255,255,0.17);
+  transform: scale(0.4); opacity: 0;
+  transition: transform .45s cubic-bezier(.34,1.56,.64,1), opacity .3s ease;
+}
+.menu-overlay a:hover::before, .menu-overlay a:focus-visible::before { transform: scale(1); opacity: 1; }
+.menu-overlay a:hover span { transform: scale(1.06) translateY(-2px); }
 .menu-foot { color: rgba(255,255,255,.8); font-size: .95rem; font-weight: 500; opacity: 0; transition: opacity .5s ease .55s; }
 .menu-overlay.open .menu-foot { opacity: 1; }
 body.menu-open { overflow: hidden; }
@@ -425,20 +434,15 @@ body.menu-open .logo, body.menu-open .logo span { color: #fff !important; }
   content: ""; position: absolute; left: -10%; top: -30%; width: 45%; height: 160%;
   background: radial-gradient(closest-side, rgba(59,130,246,0.16), transparent 70%); pointer-events: none;
 }
-.director-photo { flex: 0 0 250px; position: relative; z-index: 1; }
-.director-photo img, .director-photo .ph {
-  width: 250px; height: 290px; border-radius: 22px; object-fit: cover; display: block;
-  border: 1px solid var(--border);
+.director-photo { flex: 0 0 300px; position: relative; z-index: 1; align-self: stretch; display: flex; align-items: flex-end; justify-content: center; }
+.director-photo img {
+  width: 100%; max-width: 300px; height: auto; display: block; position: relative; z-index: 1;
+  filter: drop-shadow(0 22px 45px rgba(0,0,0,.55));
 }
-.director-photo .ph {
-  display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(160deg, #21324f, #14203a);
-  box-shadow: inset 0 0 60px rgba(0,0,0,.4);
-}
-.director-photo .ph svg { width: 88px; height: 88px; opacity: .5; }
 .director-photo::after {
-  content: ""; position: absolute; inset: -14px; border-radius: 28px; z-index: -1;
-  background: radial-gradient(closest-side, rgba(59,130,246,0.35), transparent 72%); filter: blur(10px);
+  content: ""; position: absolute; left: 50%; bottom: 6%; transform: translateX(-50%);
+  width: 118%; height: 80%; z-index: 0;
+  background: radial-gradient(closest-side, rgba(59,130,246,0.32), transparent 72%); filter: blur(16px);
 }
 .director-body { flex: 1; min-width: 0; position: relative; z-index: 1; }
 .thought {

@@ -40,7 +40,7 @@
   var ov = document.createElement('div');
   ov.className = 'menu-overlay';
   var html = '<nav>';
-  links.forEach(function (l) { html += '<a href="' + l[1] + '">' + l[0] + '</a>'; });
+  links.forEach(function (l) { html += '<a href="' + l[1] + '"><span>' + l[0] + '</span></a>'; });
   html += '</nav><div class="menu-foot">contact@sratech.net &nbsp;·&nbsp; +91 85889 30331</div>';
   ov.innerHTML = html;
   document.body.appendChild(ov);
