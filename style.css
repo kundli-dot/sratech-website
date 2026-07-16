@@ -95,6 +95,19 @@ header {
 .btn-outline { border: 1px solid var(--border); color: var(--text); }
 .btn-outline:hover { border-color: var(--blue); color: var(--blue-light); }
 
+/* Sweep hover effect — all .btn except .no-swipe */
+.btn { position: relative; overflow: hidden; isolation: isolate; }
+.btn:not(.no-swipe)::after {
+  content: ""; position: absolute; z-index: -1;
+  left: -20%; right: -20%; top: 0; bottom: 0;
+  background: #fff;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: transform 0.5s ease;
+}
+.btn:not(.no-swipe):hover::after { transform: skewX(-45deg) scale(1, 1); }
+.btn:not(.no-swipe):hover { color: #000; }
+@media (prefers-reduced-motion: reduce) { .btn:not(.no-swipe)::after { transition: none; } }
+
 /* ===== Section ===== */
 section { padding: 80px 0; }
 .section-head { margin-bottom: 52px; }
