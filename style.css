@@ -234,6 +234,27 @@ section { padding: 80px 0; }
   .wf-anim .scov, .wf-anim .gwipe, .wf-anim .fdot { display: none; }
 }
 
+/* Animated data-processing illustration */
+.d-anim { position: relative; display: block; width: 100%; border-radius: 12px; overflow: hidden; line-height: 0; }
+.d-anim > img { width: 100%; display: block; border-radius: 0; }
+.d-anim .d-env-cov { position: absolute; left: 7.8%; top: 24.6%; width: 8%; height: 9.6%; background: #f9fdff; }
+.d-anim .d-env { position: absolute; left: 8.2%; top: 25.5%; width: 7%; animation: envbob 2s ease-in-out infinite; }
+.d-anim .d-env img { width: 100%; display: block; }
+@keyframes envbob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-11%); } }
+.d-anim .d-gear-cov { position: absolute; left: 29.5%; top: 44.6%; width: 7%; height: 9%; background: #f7fbff; }
+.d-anim .d-gear { position: absolute; left: 30%; top: 45.1%; width: 6%; animation: gearspin 6s linear infinite; transform-origin: 50% 50%; }
+.d-anim .d-gear img { width: 100%; display: block; }
+@keyframes gearspin { to { transform: rotate(360deg); } }
+.d-anim .dd { position: absolute; width: 0.8%; height: 1.05%; margin: -0.5% 0 0 -0.4%; border-radius: 50%; background: #2f7bf0; box-shadow: 0 0 6px 2px rgba(47,123,240,.6); }
+.d-anim .dd.li1 { top: 34%; animation: ddInL 1.8s linear infinite; }
+.d-anim .dd.li2 { top: 38.6%; animation: ddInL 1.8s linear infinite; animation-delay: .9s; }
+@keyframes ddInL { 0% { left: 19%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { left: 27%; opacity: 0; } }
+.d-anim .dd.ro1 { top: 26.2%; animation: ddOutR 1.8s linear infinite; }
+.d-anim .dd.ro2 { top: 38.6%; animation: ddOutR 1.8s linear infinite; animation-delay: .6s; }
+.d-anim .dd.ro3 { top: 49%; animation: ddOutR 1.8s linear infinite; animation-delay: 1.2s; }
+@keyframes ddOutR { 0% { left: 48%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { left: 55.5%; opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .d-anim .d-env, .d-anim .d-gear, .d-anim .dd { animation: none; } .d-anim .d-env-cov, .d-anim .d-gear-cov, .d-anim .dd { display: none; } }
+
 /* ===== Tool logo chips ===== */
 .tool-chips { display: flex; flex-wrap: wrap; gap: 12px; }
 .tool-chip {
@@ -509,8 +530,10 @@ body.menu-open .logo, body.menu-open .logo span { color: #fff !important; }
 }
 .sig-name {
   font-family: "Great Vibes", cursive; font-weight: 400;
-  font-size: clamp(2.2rem, 4vw, 3rem); line-height: 1; color: #fff;
-  margin-bottom: 4px;
+  font-size: clamp(2.4rem, 4.4vw, 3.2rem); line-height: 1; margin-bottom: 4px;
+  background: linear-gradient(180deg, #ffffff 0%, #e8ecf3 45%, #b7c0cf 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,.4));
 }
 .director-role { color: var(--text-dim); font-weight: 600; font-size: 0.95rem; }
 @media (max-width: 780px) {
