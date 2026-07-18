@@ -833,3 +833,71 @@ section { padding: 96px 0; }
   .menu-wave { transition: none; }
   .wave-edge { animation: none; }
 }
+
+/* ============================================================
+   FORM GUIDE ROBOT — points at the next field to fill
+   ============================================================ */
+.start-layout { align-items: flex-start; }
+.bot-aside { flex: 0 0 136px; position: relative; align-self: stretch; order: -1; }
+
+.bot-guide {
+  position: absolute; left: 0; top: 0; width: 136px; text-align: center;
+  transition: transform .55s cubic-bezier(.2,.7,.2,1);
+  will-change: transform;
+}
+.bot { position: relative; width: 118px; margin: 0 auto; }
+.bot-body { width: 100%; display: block; }
+
+/* Raised arm sits back exactly where it was cut from the body */
+.bot-arm {
+  position: absolute; left: 58%; top: 37.5%; width: 42%; display: block;
+  transform-origin: 3% 95%;
+  animation: bot-point 1s ease-in-out infinite;
+}
+@keyframes bot-point {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(-13deg); }
+}
+
+/* Eyelids in the face-screen colour, dropped over the eyes to blink */
+.bot-lid {
+  position: absolute; width: 15.5%; height: 14.5%;
+  background: linear-gradient(180deg, #2b3040, #08152c);
+  border-radius: 45% 45% 40% 40%;
+  transform: scaleY(0); transform-origin: top center;
+  animation: bot-blink 3.6s infinite;
+}
+.bot-lid.l { left: 30.6%; top: 27.8%; }
+.bot-lid.r { left: 53.0%; top: 27.4%; }
+@keyframes bot-blink {
+  0%, 90%   { transform: scaleY(0); }
+  93%       { transform: scaleY(1); }
+  96.5%     { transform: scaleY(0); }
+  100%      { transform: scaleY(0); }
+}
+
+/* Whole-robot hop */
+.bot { animation: bot-hop 1s ease-in-out infinite; }
+@keyframes bot-hop {
+  0%, 100% { transform: translateY(0); }
+  45%      { transform: translateY(-9%); }
+}
+
+.bot-tip {
+  color: var(--blue-light); font-size: .8rem; font-weight: 600; line-height: 1.4;
+  margin-top: 6px; min-height: 2.4em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bot, .bot-arm, .bot-lid { animation: none; }
+  .bot-guide { transition: none; }
+}
+
+/* Stacked layout: robot becomes a small header above the form */
+@media (max-width: 900px) {
+  .bot-aside { flex: none; width: 100%; align-self: auto; height: auto; margin-bottom: 4px; }
+  .bot-guide { position: static; width: 100%; display: flex; align-items: center; gap: 14px;
+               text-align: left; transform: none !important; }
+  .bot { width: 74px; margin: 0; flex: none; }
+  .bot-tip { margin-top: 0; min-height: 0; font-size: .9rem; }
+}

@@ -109,3 +109,52 @@
   }
   tick();
 })();
+
+// Form guide robot — tracks the first field still waiting to be filled
+(function () {
+  var aside = document.getElementById('botAside');
+  var guide = document.getElementById('botGuide');
+  var tip   = document.getElementById('botTip');
+  var form  = document.getElementById('leadForm');
+  if (!aside || !guide || !form) return;
+
+  var steps = [
+    ['name',    'Start with your name'],
+    ['number',  'Now your phone number'],
+    ['email',   'Next, your email'],
+    ['country', 'Pick your country'],
+    ['state',   'Now your state'],
+    ['city',    'And your city'],
+    ['query',   'Last one — tell us about your project']
+  ];
+  var btn = document.getElementById('submitBtn');
+
+  // The fingertip sits ~38% down the artwork; align that with the field's centre.
+  var FINGER = 0.38;
+
+  function nextTarget() {
+    for (var i = 0; i < steps.length; i++) {
+      var el = document.getElementById(steps[i][0]);
+      if (el && !el.disabled && !el.value.trim()) return { el: el, msg: steps[i][1] };
+    }
+    return { el: btn, msg: 'All set — send it over!' };
+  }
+
+  function place() {
+    var t = nextTarget();
+    if (!t.el) return;
+    if (tip) tip.textContent = t.msg;
+    var bot = guide.querySelector('.bot');
+    var a = aside.getBoundingClientRect();
+    var r = t.el.getBoundingClientRect();
+    var y = (r.top + r.height / 2) - a.top - bot.offsetHeight * FINGER;
+    guide.style.transform = 'translateY(' + Math.max(0, Math.round(y)) + 'px)';
+  }
+
+  form.addEventListener('input', place);
+  form.addEventListener('change', place);
+  window.addEventListener('resize', place);
+  if (document.readyState === 'complete') place();
+  else window.addEventListener('load', place);
+  setTimeout(place, 60);
+})();
