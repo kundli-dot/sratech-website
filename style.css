@@ -1,15 +1,19 @@
 /* ===== SRATECH — Global Styles ===== */
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;450;500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&family=Great+Vibes&display=swap');
 :root {
-  --bg: #12111a;
-  --bg-card: #1c1b28;
-  --bg-card-hover: #262433;
-  --blue: #3b82f6;
-  --blue-light: #60a5fa;
-  --text: #e8e8ec;
-  --text-dim: #9a9aa8;
-  --border: #2c2b3b;
+  --bg: #353839;          /* onyx — primary surface */
+  --bg-deep: #2c2f30;     /* deeper band */
+  --bg-card: #3e4243;
+  --bg-card-hover: #484c4d;
+  --blue: #2f7bf0;
+  --blue-light: #5fa0ff;
+  --blue-deep: #1d5fd0;
+  --text: #f1f3f3;
+  --text-dim: #a9afb0;
+  --border: #4c5152;
+  --border-soft: #454a4b;
   --max: 1140px;
+  --ring: rgba(47,123,240,.35);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -105,7 +109,7 @@ header {
   transition: transform 0.5s ease;
 }
 .btn:not(.no-swipe):hover::after { transform: skewX(-45deg) scale(1, 1); }
-.btn:not(.no-swipe):hover { color: #000; }
+.btn:not(.no-swipe):hover { color: #353839; }
 @media (prefers-reduced-motion: reduce) { .btn:not(.no-swipe)::after { transition: none; } }
 
 /* ===== Section ===== */
@@ -360,7 +364,7 @@ footer { border-top: 1px solid var(--border); padding: 54px 0 30px; margin-top: 
 /* Header: transparent at top, subtle glass on scroll */
 header { transition: background .35s ease, border-color .35s ease; }
 header.scrolled {
-  background: rgba(18, 17, 26, 0.72);
+  background: rgba(53, 56, 57, 0.80);
   -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
@@ -562,3 +566,229 @@ body.menu-open .logo, body.menu-open .logo span { color: #fff !important; }
   .director-photo { flex: none; margin: 0 auto; }
   .thought { margin-left: auto; margin-right: auto; }
 }
+
+/* ============================================================
+   v3 — PROFESSIONAL REFINEMENT
+   ============================================================ */
+
+/* --- Typography & rhythm --- */
+body { font-size: 16.5px; }
+section { padding: 96px 0; }
+.section-head h2 { font-size: clamp(2.1rem, 4.4vw, 3.1rem); line-height: 1.1; letter-spacing: -0.03em; }
+.section-head p { line-height: 1.7; }
+
+/* Centered section head variant */
+.section-head.center { text-align: center; margin-bottom: 60px; }
+.section-head.center p { margin-left: auto; margin-right: auto; }
+.section-head.center h2 { max-width: 16ch; margin-left: auto; margin-right: auto; }
+
+/* Alternating band background for visual rhythm */
+.band { background: var(--bg-deep); border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); }
+
+/* Softer, more premium cards */
+.card, .stat, .contact-row {
+  background: linear-gradient(180deg, var(--bg-card), rgba(53,56,57,.65));
+  border-color: var(--border-soft);
+  box-shadow: 0 1px 0 rgba(255,255,255,.03) inset;
+}
+
+/* --- Button refinements --- */
+.btn { padding: 15px 32px; border-radius: 12px; letter-spacing: -0.01em; }
+.btn-primary { background: linear-gradient(180deg, var(--blue-light), var(--blue)); }
+.btn-primary:hover { background: linear-gradient(180deg, var(--blue-light), var(--blue-light)); }
+.btn-dark { background: #2c2f30; color: #fff; border: 1px solid #4c5152; }
+.btn-white { background: #fff; color: var(--blue); }
+.btn-block { display: block; width: 100%; text-align: center; }
+
+/* ============================================================
+   PROCESS — horizontal 7-step timeline
+   ============================================================ */
+.process-line {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px;
+  position: relative; padding-top: 6px;
+}
+.process-line::before {
+  content: ""; position: absolute; left: 7%; right: 7%; top: 30px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--border), var(--border), transparent);
+}
+.pstep { text-align: center; position: relative; z-index: 1; padding: 0 4px; }
+.pico {
+  width: 60px; height: 60px; margin: 0 auto 16px; border-radius: 50%;
+  background: linear-gradient(180deg, var(--blue-light), var(--blue));
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 26px -10px rgba(47,123,240,.85), 0 0 0 6px var(--bg);
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1), box-shadow .3s;
+}
+.pstep:hover .pico { transform: translateY(-5px) scale(1.06); box-shadow: 0 16px 34px -10px rgba(47,123,240,.95), 0 0 0 6px var(--bg); }
+.pico svg { width: 26px; height: 26px; stroke: #fff; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.pnum { color: var(--blue-light); font-size: .82rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+.pstep h4 { font-family: "Sora", sans-serif; font-size: 1.02rem; font-weight: 700; margin-bottom: 7px; letter-spacing: -0.02em; }
+.pstep p { color: var(--text-dim); font-size: .84rem; line-height: 1.55; }
+.band .pico { box-shadow: 0 10px 26px -10px rgba(47,123,240,.85), 0 0 0 6px var(--bg-deep); }
+.band .pstep:hover .pico { box-shadow: 0 16px 34px -10px rgba(47,123,240,.95), 0 0 0 6px var(--bg-deep); }
+
+@media (max-width: 1000px) {
+  .process-line { grid-template-columns: repeat(4, 1fr); gap: 30px 8px; }
+  .process-line::before { display: none; }
+}
+@media (max-width: 640px) {
+  .process-line { grid-template-columns: repeat(2, 1fr); gap: 34px 10px; }
+  .pico { width: 52px; height: 52px; }
+  .pico svg { width: 23px; height: 23px; }
+}
+
+/* ============================================================
+   TECH STACK — pill cloud
+   ============================================================ */
+.stack-cloud { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 900px; margin: 0 auto; }
+.stack-pill {
+  border: 1px solid var(--border); border-radius: 40px;
+  padding: 12px 26px; font-weight: 600; font-size: .96rem;
+  color: var(--text-dim); background: var(--bg-card);
+  transition: color .25s, border-color .25s, transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s;
+  cursor: default;
+}
+.stack-pill:hover {
+  color: var(--blue-light); border-color: var(--blue);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px -14px rgba(47,123,240,.9);
+}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.tst-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; }
+.tst {
+  flex: 1 1 320px; max-width: 358px;
+  background: linear-gradient(180deg, var(--bg-card), rgba(53,56,57,.6));
+  border: 1px solid var(--border-soft); border-radius: 18px; padding: 30px 28px;
+  display: flex; flex-direction: column;
+  transition: transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s;
+  position: relative; overflow: hidden;
+}
+.tst::before {
+  content: "\201C"; position: absolute; top: -22px; right: 14px;
+  font-family: Georgia, serif; font-size: 7rem; line-height: 1;
+  color: rgba(47,123,240,.13); pointer-events: none;
+}
+.tst:hover { transform: translateY(-6px); border-color: var(--blue); box-shadow: 0 26px 55px -26px rgba(47,123,240,.7); }
+.tst .stars { color: #f5b544; letter-spacing: 3px; font-size: .95rem; margin-bottom: 14px; }
+.tst blockquote { color: var(--text); font-size: 1rem; line-height: 1.72; margin-bottom: 22px; flex: 1; }
+.tst-who { display: flex; align-items: center; gap: 13px; border-top: 1px solid var(--border-soft); padding-top: 18px; }
+.tst-av {
+  width: 44px; height: 44px; border-radius: 50%; flex: none;
+  background: linear-gradient(140deg, var(--blue-light), var(--blue-deep));
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: .95rem; color: #fff; letter-spacing: .5px;
+}
+.tst-name { font-weight: 700; font-size: .97rem; line-height: 1.3; }
+.tst-role { color: var(--text-dim); font-size: .84rem; line-height: 1.4; }
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: center; }
+.price-card {
+  background: linear-gradient(180deg, var(--bg-card), rgba(53,56,57,.6));
+  border: 1px solid var(--border-soft); border-radius: 22px; padding: 36px 30px;
+  display: flex; flex-direction: column;
+  transition: transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s, box-shadow .3s;
+}
+.price-card:hover { transform: translateY(-6px); border-color: var(--blue); box-shadow: 0 30px 60px -30px rgba(47,123,240,.7); }
+.price-card .kicker { color: var(--blue-light); font-size: .76rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; margin-bottom: 14px; }
+.price-card h3 { font-family: "Sora", sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 14px; letter-spacing: -0.02em; }
+.price { display: flex; align-items: baseline; gap: 7px; margin-bottom: 26px; }
+.price .amt { font-family: "Sora", sans-serif; font-size: 2.9rem; font-weight: 800; letter-spacing: -0.045em; line-height: 1; }
+.price .per { color: var(--text-dim); font-size: .95rem; font-weight: 500; }
+.price-list { list-style: none; display: flex; flex-direction: column; gap: 13px; margin-bottom: 30px; flex: 1; }
+.price-list li { position: relative; padding-left: 28px; font-size: .95rem; line-height: 1.5; }
+.price-list li::before {
+  content: ""; position: absolute; left: 0; top: .38em; width: 15px; height: 9px;
+  border-left: 2.2px solid var(--blue-light); border-bottom: 2.2px solid var(--blue-light);
+  transform: rotate(-45deg);
+}
+
+/* Featured (Professional) */
+.price-card.featured {
+  position: relative; z-index: 1;
+  background: linear-gradient(150deg, var(--blue-deep) 0%, var(--blue) 45%, #29b6f0 100%);
+  border-color: transparent; padding: 46px 34px;
+  box-shadow: 0 34px 70px -28px rgba(47,123,240,.85);
+}
+.price-card.featured:hover { box-shadow: 0 42px 84px -28px rgba(47,123,240,.95); }
+.price-card.featured .kicker { color: rgba(255,255,255,.85); }
+.price-card.featured .price .per { color: rgba(255,255,255,.85); }
+.price-card.featured .price-list li::before { border-color: #fff; }
+.price-badge {
+  position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+  background: #2c2f30; color: #fff; font-size: .78rem; font-weight: 700;
+  padding: 7px 20px; border-radius: 30px; white-space: nowrap;
+  box-shadow: 0 8px 20px rgba(0,0,0,.4);
+}
+
+@media (max-width: 900px) {
+  .price-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .price-card.featured { padding: 42px 30px; }
+}
+
+/* ============================================================
+   FAQ — native accordion
+   ============================================================ */
+.faq { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.faq details {
+  background: linear-gradient(180deg, var(--bg-card), rgba(53,56,57,.6));
+  border: 1px solid var(--border-soft); border-radius: 14px;
+  transition: border-color .25s, box-shadow .25s;
+}
+.faq details[open] { border-color: var(--blue); box-shadow: 0 18px 40px -26px rgba(47,123,240,.8); }
+.faq summary {
+  list-style: none; cursor: pointer; padding: 20px 56px 20px 24px;
+  font-weight: 600; font-size: 1.02rem; position: relative;
+  transition: color .2s;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary:hover { color: var(--blue-light); }
+.faq summary::before, .faq summary::after {
+  content: ""; position: absolute; right: 24px; top: 50%;
+  background: var(--blue-light); border-radius: 2px;
+  transition: transform .3s cubic-bezier(.2,.7,.2,1), opacity .3s;
+}
+.faq summary::before { width: 14px; height: 2px; transform: translateY(-50%); }
+.faq summary::after  { width: 2px; height: 14px; right: 30px; transform: translateY(-50%); }
+.faq details[open] summary::after { transform: translateY(-50%) rotate(90deg); opacity: 0; }
+.faq .faq-a { padding: 0 24px 22px; color: var(--text-dim); font-size: .97rem; line-height: 1.72; }
+
+/* ============================================================
+   CTA BANNER — full gradient
+   ============================================================ */
+.cta-banner {
+  background: linear-gradient(115deg, var(--blue-deep) 0%, var(--blue) 40%, #29b6f0 100%);
+  border-radius: 26px; padding: 54px 56px;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px;
+  box-shadow: 0 34px 80px -34px rgba(47,123,240,.9);
+  position: relative; overflow: hidden;
+}
+.cta-banner::after {
+  content: ""; position: absolute; right: -6%; top: -60%; width: 46%; height: 220%;
+  background: radial-gradient(closest-side, rgba(255,255,255,.16), transparent 70%);
+  pointer-events: none;
+}
+.cta-banner-copy { position: relative; z-index: 1; max-width: 520px; }
+.cta-banner h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); font-weight: 800; letter-spacing: -0.035em; line-height: 1.12; margin-bottom: 14px; color: #fff; }
+.cta-banner p { color: rgba(255,255,255,.9); font-size: 1rem; line-height: 1.65; margin: 0; }
+.cta-banner-actions { position: relative; z-index: 1; display: flex; gap: 14px; flex-wrap: wrap; flex: none; }
+.cta-banner .btn-white:hover, .cta-banner .btn-dark:hover { transform: translateY(-2px); }
+.cta-banner .btn-white .arw { transition: transform .25s; display: inline-block; }
+.cta-banner .btn-white:hover .arw { transform: translateX(4px); }
+
+@media (max-width: 860px) {
+  .cta-banner { flex-direction: column; align-items: flex-start; padding: 40px 28px; }
+  .cta-banner-actions { width: 100%; }
+  .cta-banner-actions .btn { flex: 1 1 auto; text-align: center; }
+}
+
+/* ============================================================
+   LOGO / TRUST STRIP + misc polish
+   ============================================================ */
+.mini-note { text-align: center; color: var(--text-dim); font-size: .92rem; margin-top: 26px; }
+.mini-note a { color: var(--blue-light); text-decoration: underline; text-underline-offset: 3px; }

@@ -7,9 +7,21 @@
   window.addEventListener('scroll', onScroll, { passive: true });
 
   // Scroll reveal for content blocks
-  var sel = '.card, .feature-card, .ai-feature, .stat, .contact-row, .cta, .tech-strip, .section-head, .form-card';
+  var sel = '.card, .feature-card, .ai-feature, .stat, .contact-row, .cta, .tech-strip, .section-head, .form-card,' +
+            '.pstep, .tst, .price-card, .faq details, .cta-banner, .stack-cloud, .director-card';
   var els = Array.prototype.slice.call(document.querySelectorAll(sel));
   els.forEach(function (el) { el.classList.add('reveal'); });
+
+  // Stagger siblings inside a group so rows cascade instead of popping at once
+  ['.process-line', '.tst-grid', '.price-grid', '.faq', '.stats', '.grid'].forEach(function (g) {
+    document.querySelectorAll(g).forEach(function (group) {
+      Array.prototype.slice.call(group.children).forEach(function (child, i) {
+        if (child.classList.contains('reveal')) {
+          child.style.transitionDelay = Math.min(i, 7) * 70 + 'ms';
+        }
+      });
+    });
+  });
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
