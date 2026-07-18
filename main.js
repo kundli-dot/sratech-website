@@ -51,9 +51,24 @@
   ];
   var ov = document.createElement('div');
   ov.className = 'menu-overlay';
-  var html = '<nav>';
+
+  // Snaking crest: 4 periods across the 1200-wide viewBox. The first half
+  // (0-600) is identical to the second, so a -50% shift loops seamlessly.
+  var wavePath = 'M0,60';
+  for (var w = 0; w < 4; w++) {
+    var x = w * 300;
+    wavePath += ' C' + (x + 38) + ',18 ' + (x + 112) + ',18 ' + (x + 150) + ',60' +
+                ' C' + (x + 188) + ',102 ' + (x + 262) + ',102 ' + (x + 300) + ',60';
+  }
+  wavePath += ' L1200,100 L0,100 Z';
+
+  var html = '<div class="menu-wave">' +
+    '<svg class="wave-edge" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">' +
+      '<path d="' + wavePath + '"/></svg>' +
+    '<div class="menu-wave-inner"><nav>';
   links.forEach(function (l) { html += '<a href="' + l[1] + '"><span>' + l[0] + '</span></a>'; });
-  html += '</nav><div class="menu-foot">contact@sratech.net &nbsp;·&nbsp; +91 85889 30331</div>';
+  html += '</nav><div class="menu-foot">contact@sratech.net &nbsp;·&nbsp; +91 85889 30331</div>' +
+    '</div></div>';
   ov.innerHTML = html;
   document.body.appendChild(ov);
 
