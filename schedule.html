@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule a Call — SRATECH</title>
+  <meta name="description" content="Book a free 30-minute consultation with SRATECH. Pick a date and time that suits you.">
+  <link rel="canonical" href="https://sratech.net/schedule.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#353839">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SRATECH">
+  <meta property="og:title" content="Schedule a Call — SRATECH">
+  <meta property="og:description" content="Book a free 30-minute consultation. Pick a date and time that suits you.">
+  <meta property="og:url" content="https://sratech.net/schedule.html">
+  <meta property="og:image" content="https://sratech.net/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://sratech.net/og-image.png">
+  <link rel="icon" href="favicon.ico?v=2" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png?v=2">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+  <link rel="stylesheet" href="style.css?v=20">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo"><img src="logo-mark.png?v=2" class="logo-mark" alt="SRATECH logo" width="30" height="30">SRA<span>TECH</span> <span class="dot">•</span></a>
+      <ul class="nav-links" id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="menu-btn" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:80px 0 30px;">
+    <div class="container">
+      <p class="eyebrow">Schedule a Call</p>
+      <h1>Book your free <span class="blue">30-minute call.</span></h1>
+      <p>Pick a slot that suits you. We'll map your project, give you an estimate, and share ideas — no strings attached.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:10px;">
+    <div class="container">
+      <div class="start-layout">
+      <aside class="bot-aside" id="botAside">
+        <div class="bot-guide" id="botGuide">
+          <div class="bot" aria-hidden="true">
+            <img class="bot-body" src="robot-body.png" alt="">
+            <img class="bot-arm" src="robot-arm.png" alt="">
+            <span class="bot-lid l"></span><span class="bot-lid r"></span>
+          </div>
+          <p class="bot-tip" id="botTip">Pick a date to begin</p>
+        </div>
+      </aside>
+
+      <div class="form-card">
+        <form id="callForm" novalidate>
+
+          <div class="step-block" data-step="bookDate" data-msg="Pick a date that works for you">
+            <label>Choose a date <span class="req">*</span></label>
+            <div class="cal">
+              <div class="cal-head">
+                <button type="button" class="cal-nav" id="calPrev" aria-label="Previous month">&lsaquo;</button>
+                <div class="cal-title" id="calTitle"></div>
+                <button type="button" class="cal-nav" id="calNext" aria-label="Next month">&rsaquo;</button>
+              </div>
+              <div class="cal-dow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+              <div class="cal-grid" id="calGrid"></div>
+            </div>
+            <input type="hidden" id="bookDate" name="date">
+          </div>
+
+          <div class="step-block" data-step="bookTime" data-msg="Now choose a time slot">
+            <label>Choose a time <span class="req">*</span></label>
+            <div class="slots" id="slots"><span class="slots-empty">Select a date first to see available times.</span></div>
+            <input type="hidden" id="bookTime" name="time">
+          </div>
+
+          <div class="form-grid">
+            <div class="field" data-step="cName" data-msg="Your name, please">
+              <label for="cName">Name <span class="req">*</span></label>
+              <input type="text" id="cName" name="name" placeholder="Your full name" required>
+            </div>
+            <div class="field" data-step="cMobile" data-msg="Your mobile number">
+              <label for="cMobile">Mobile No. <span class="req">*</span></label>
+              <input type="tel" id="cMobile" name="mobile" placeholder="e.g. +91 98765 43210" required>
+            </div>
+
+            <div class="field field-full" data-step="cProject" data-msg="What's this about? Tick all that apply">
+              <label for="msToggle">Project <span class="req">*</span></label>
+              <div class="ms" id="msProject">
+                <button type="button" class="ms-toggle placeholder" id="msToggle" aria-haspopup="true" aria-expanded="false">
+                  Select one or more<span class="ms-caret" aria-hidden="true">▾</span>
+                </button>
+                <div class="ms-menu" id="msMenu" role="group" aria-label="Project type">
+                  <label class="ms-opt"><input type="checkbox" value="New project"><span>New project</span></label>
+                  <label class="ms-opt"><input type="checkbox" value="Modification on existing project"><span>Modification on existing project</span></label>
+                  <label class="ms-opt"><input type="checkbox" value="SEO"><span>SEO</span></label>
+                  <label class="ms-opt"><input type="checkbox" value="Consultancy"><span>Consultancy</span></label>
+                  <label class="ms-opt"><input type="checkbox" value="Education"><span>Education</span></label>
+                </div>
+              </div>
+              <input type="hidden" id="cProject" name="project" required>
+            </div>
+
+            <div class="field field-full" data-step="cRemarks" data-msg="Anything else we should know?" data-optional>
+              <label for="cRemarks">Remarks</label>
+              <textarea id="cRemarks" name="remarks" rows="4" placeholder="Tell us a bit about what you have in mind… (optional)"></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="callBtn">Book the call</button>
+            <p class="form-status" id="callStatus"></p>
+          </div>
+        </form>
+      </div>
+
+      </div>
+      <p class="cat-note" style="text-align:center;margin-top:26px;">All times are shown in <strong>India Standard Time (IST)</strong>. We'll confirm by email and phone.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="foot-social">
+        <a href="https://www.instagram.com/sratech_dev" target="_blank" rel="noopener" aria-label="SRATECH on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.15" class="fill"/></svg>
+        </a>
+        <a href="https://www.facebook.com/share/1cgct75xbQ/" target="_blank" rel="noopener" aria-label="SRATECH on Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6c-.29-.04-1.28-.12-2.43-.12-2.4 0-4.05 1.47-4.05 4.16V9.9H7.5V13h2.72v8h3.28z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/quick2go1/" target="_blank" rel="noopener" aria-label="SRATECH on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path class="fill" d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0-.02-5zM3 9.75h4v11.25H3V9.75zm6.5 0h3.83v1.54h.06c.53-.95 1.84-1.95 3.78-1.95 4.04 0 4.79 2.5 4.79 5.76v5.9h-4v-5.23c0-1.25-.02-2.85-1.79-2.85-1.79 0-2.07 1.35-2.07 2.76v5.32h-4V9.75z"/></svg>
+        </a>
+      </div>
+      <div class="foot-bottom">© 2026 SRATECH. All rights reserved. — Built to scale. Engineered to last.</div>
+    </div>
+  </footer>
+
+  <script>
+    const FORM_ENDPOINT = "https://formspree.io/f/xgogvlle";
+
+    // ---------- Calendar ----------
+    const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const grid = document.getElementById('calGrid');
+    const title = document.getElementById('calTitle');
+    const prevBtn = document.getElementById('calPrev');
+    const nextBtn = document.getElementById('calNext');
+    const dateInput = document.getElementById('bookDate');
+
+    const today = new Date(); today.setHours(0,0,0,0);
+    const maxDate = new Date(today); maxDate.setDate(maxDate.getDate() + 60);  // book up to 2 months out
+    let view = new Date(today.getFullYear(), today.getMonth(), 1);
+    let picked = null;
+
+    function sameDay(a, b) { return a && b && a.getTime() === b.getTime(); }
+    function fmt(d) {
+      return d.toLocaleDateString('en-GB', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+    }
+
+    function renderCal() {
+      title.textContent = MONTHS[view.getMonth()] + ' ' + view.getFullYear();
+      grid.innerHTML = '';
+
+      // Monday-first offset
+      const first = new Date(view.getFullYear(), view.getMonth(), 1);
+      let lead = (first.getDay() + 6) % 7;
+      for (let i = 0; i < lead; i++) {
+        const b = document.createElement('div'); b.className = 'cal-day blank'; grid.appendChild(b);
+      }
+
+      const days = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
+      for (let d = 1; d <= days; d++) {
+        const dt = new Date(view.getFullYear(), view.getMonth(), d);
+        const btn = document.createElement('button');
+        btn.type = 'button'; btn.className = 'cal-day'; btn.textContent = d;
+        // To block a weekday, add it here — e.g. [0] blocks Sundays.
+        const CLOSED_DAYS = [];
+        if (dt < today || dt > maxDate || CLOSED_DAYS.indexOf(dt.getDay()) !== -1) btn.disabled = true;
+        if (sameDay(dt, today)) btn.classList.add('today');
+        if (sameDay(dt, picked)) btn.classList.add('sel');
+        btn.addEventListener('click', function () {
+          picked = dt;
+          dateInput.value = fmt(dt);
+          renderCal();
+          renderSlots();
+          document.getElementById('callForm').dispatchEvent(new Event('change', { bubbles: true }));
+        });
+        grid.appendChild(btn);
+      }
+
+      prevBtn.disabled = view.getFullYear() === today.getFullYear() && view.getMonth() === today.getMonth();
+      nextBtn.disabled = view > maxDate;
+    }
+
+    prevBtn.addEventListener('click', function () { view.setMonth(view.getMonth() - 1); renderCal(); });
+    nextBtn.addEventListener('click', function () { view.setMonth(view.getMonth() + 1); renderCal(); });
+
+    // ---------- Time slots ----------
+    const slotsBox = document.getElementById('slots');
+    const timeInput = document.getElementById('bookTime');
+    const SLOTS = ['10:00 AM','11:00 AM','12:00 PM','01:00 PM','02:00 PM','03:00 PM','04:00 PM','05:00 PM','06:00 PM'];
+
+    function renderSlots() {
+      timeInput.value = '';
+      slotsBox.innerHTML = '';
+      if (!picked) {
+        slotsBox.innerHTML = '<span class="slots-empty">Select a date first to see available times.</span>';
+        return;
+      }
+      const isToday = sameDay(picked, today);
+      const nowHour = new Date().getHours();
+      let shown = 0;
+      SLOTS.forEach(function (s, i) {
+        const hour24 = 10 + i;
+        if (isToday && hour24 <= nowHour) return;   // don't offer slots already gone
+        shown++;
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'slot'; b.textContent = s;
+        b.addEventListener('click', function () {
+          slotsBox.querySelectorAll('.slot').forEach(function (x) { x.classList.remove('sel'); });
+          b.classList.add('sel');
+          timeInput.value = s;
+          document.getElementById('callForm').dispatchEvent(new Event('change', { bubbles: true }));
+        });
+        slotsBox.appendChild(b);
+      });
+      if (!shown) slotsBox.innerHTML = '<span class="slots-empty">No slots left today — please pick another date.</span>';
+    }
+
+    // ---------- Multi-select ----------
+    const ms = document.getElementById('msProject');
+    const msToggle = document.getElementById('msToggle');
+    const msMenu = document.getElementById('msMenu');
+    const projInput = document.getElementById('cProject');
+
+    msToggle.addEventListener('click', function () {
+      const open = ms.classList.toggle('open');
+      msToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) {
+      if (!ms.contains(e.target)) { ms.classList.remove('open'); msToggle.setAttribute('aria-expanded', 'false'); }
+    });
+    msMenu.addEventListener('change', function () {
+      const vals = Array.prototype.slice.call(msMenu.querySelectorAll('input:checked')).map(function (c) { return c.value; });
+      projInput.value = vals.join(', ');
+      msToggle.classList.toggle('placeholder', vals.length === 0);
+      msToggle.childNodes[0].nodeValue = vals.length === 0 ? 'Select one or more'
+        : (vals.length === 1 ? vals[0] : vals.length + ' selected');
+      document.getElementById('callForm').dispatchEvent(new Event('change', { bubbles: true }));
+    });
+
+    // ---------- Submit ----------
+    const cForm = document.getElementById('callForm');
+    const cStatus = document.getElementById('callStatus');
+    const cBtn = document.getElementById('callBtn');
+
+    cForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      cStatus.className = 'form-status';
+      const missing = [];
+      if (!dateInput.value) missing.push('a date');
+      if (!timeInput.value) missing.push('a time slot');
+      if (!document.getElementById('cName').value.trim()) missing.push('your name');
+      if (!document.getElementById('cMobile').value.trim()) missing.push('your mobile number');
+      if (!projInput.value) missing.push('a project type');
+      if (missing.length) {
+        cStatus.textContent = 'Please choose ' + missing.join(', ') + '.';
+        cStatus.classList.add('err');
+        return;
+      }
+
+      const data = {
+        date: dateInput.value,
+        time: timeInput.value + ' IST',
+        name: document.getElementById('cName').value.trim(),
+        mobile: document.getElementById('cMobile').value.trim(),
+        project: projInput.value,
+        remarks: document.getElementById('cRemarks').value.trim(),
+        _subject: 'New call booking — SRATECH website'
+      };
+
+      cBtn.disabled = true; cBtn.textContent = 'Booking…';
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (r) {
+        if (!r.ok) throw new Error('failed');
+        cStatus.textContent = 'Booked! We’ll confirm your call on ' + data.date + ' at ' + data.time + ' shortly.';
+        cStatus.classList.add('ok');
+        cForm.reset(); picked = null; dateInput.value = ''; timeInput.value = ''; projInput.value = '';
+        msToggle.classList.add('placeholder');
+        msToggle.childNodes[0].nodeValue = 'Select one or more';
+        renderCal(); renderSlots();
+      }).catch(function () {
+        cStatus.innerHTML = 'Something went wrong. Please email us at <a href="mailto:contact@sratech.net">contact@sratech.net</a>.';
+        cStatus.classList.add('err');
+      }).finally(function () {
+        cBtn.disabled = false; cBtn.textContent = 'Book the call';
+      });
+    });
+
+    renderCal();
+  </script>
+  <script src="main.js?v=20"></script>
+</body>
+</html>

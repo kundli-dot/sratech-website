@@ -110,34 +110,37 @@
   tick();
 })();
 
-// Form guide robot — tracks the first field still waiting to be filled
+// Form guide robot — points at the first step still waiting to be filled.
+// Steps are declared in the markup: [data-step="<id of the value input>"],
+// with an optional data-msg and data-optional. Works on any form on the page.
 (function () {
   var aside = document.getElementById('botAside');
   var guide = document.getElementById('botGuide');
   var tip   = document.getElementById('botTip');
-  var form  = document.getElementById('leadForm');
+  var form  = document.querySelector('.start-layout form');
   if (!aside || !guide || !form) return;
 
-  var steps = [
-    ['name',    'Start with your name'],
-    ['number',  'Now your phone number'],
-    ['email',   'Next, your email'],
-    ['country', 'Pick your country'],
-    ['state',   'Now your state'],
-    ['city',    'And your city'],
-    ['query',   'Last one — tell us about your project']
-  ];
-  var btn = document.getElementById('submitBtn');
+  var steps = Array.prototype.slice.call(form.querySelectorAll('[data-step]')).map(function (el) {
+    return {
+      anchor: el,
+      input: document.getElementById(el.getAttribute('data-step')),
+      msg: el.getAttribute('data-msg') || '',
+      optional: el.hasAttribute('data-optional')
+    };
+  });
+  if (!steps.length) return;
+  var submit = form.querySelector('[type="submit"]');
 
-  // The fingertip sits ~38% down the artwork; align that with the field's centre.
+  // The fingertip sits ~38% down the artwork; align that with the target's centre.
   var FINGER = 0.38;
 
   function nextTarget() {
     for (var i = 0; i < steps.length; i++) {
-      var el = document.getElementById(steps[i][0]);
-      if (el && !el.disabled && !el.value.trim()) return { el: el, msg: steps[i][1] };
+      var s = steps[i];
+      if (!s.input || s.input.disabled || s.optional) continue;
+      if (!s.input.value.trim()) return { el: s.anchor, msg: s.msg };
     }
-    return { el: btn, msg: 'All set — send it over!' };
+    return { el: submit, msg: 'All set — send it over!' };
   }
 
   function place() {
