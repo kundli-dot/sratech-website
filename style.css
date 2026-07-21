@@ -181,12 +181,14 @@ section { padding: 80px 0; }
 .feature-media img { width: 100%; display: block; border-radius: 10px; }
 
 @media (max-width: 860px) {
+  /* Solid dark card so text never lands on the illustration's white backdrop;
+     the image gets its own light rounded box instead of a blended background. */
   .feature-card, .feature-card.reverse {
     flex-direction: column; gap: 24px; padding: 26px;
-    background: linear-gradient(to bottom,
-      var(--bg-card) 0%, var(--bg-card) 38%,
-      var(--img-bg) 54%, var(--img-bg) 100%);
+    background: var(--bg-card);
   }
+  .feature-media { background: var(--img-bg); border-radius: 16px; padding: 16px; }
+  .feature-media img { border-radius: 8px; }
 }
 
 /* ===== AI feature (full-width, image below text) ===== */
@@ -982,3 +984,42 @@ section { padding: 96px 0; }
 
 .step-block { margin-bottom: 22px; }
 .step-block > label { display: block; font-size: 0.9rem; color: var(--text-dim); margin-bottom: 8px; font-weight: 500; }
+
+/* ============================================================
+   v4 — hero image hover pop + desktop nav headers + mobile fixes
+   ============================================================ */
+
+/* --- Hover pop with blue glow on all hero/feature images --- */
+.hero-visual > img,
+.feature-media img,
+.ai-anim, .wf-anim, .d-anim {
+  transition: transform .38s cubic-bezier(.2,.7,.2,1), box-shadow .38s ease;
+  will-change: transform;
+}
+.hero-visual > img:hover,
+.feature-media img:hover,
+.ai-anim:hover, .wf-anim:hover, .d-anim:hover {
+  transform: scale(1.04) translateY(-4px);
+  box-shadow: 0 34px 74px -22px rgba(47,123,240,.7),
+              0 0 0 1px rgba(47,123,240,.35);
+}
+/* Feature card clips its blended bg; let the popped image spill past the edge */
+.feature-card, .feature-card.reverse { overflow: visible; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual > img, .feature-media img, .ai-anim, .wf-anim, .d-anim { transition: none; }
+  .hero-visual > img:hover, .feature-media img:hover,
+  .ai-anim:hover, .wf-anim:hover, .d-anim:hover { transform: none; }
+}
+
+/* --- Desktop: show the main nav headers beside the hamburger --- */
+@media (min-width: 861px) {
+  .nav-links {
+    display: flex !important;
+    gap: 30px; list-style: none; align-items: center;
+    margin-left: auto; margin-right: 26px;
+  }
+  .nav-links a { color: var(--text-dim); font-weight: 500; font-size: 0.95rem; transition: color .2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  /* keep the hamburger/bubble menu on the far right */
+  body:not(.menu-open) .menu-btn span { background: var(--text); }
+}
