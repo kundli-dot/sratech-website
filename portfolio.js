@@ -87,8 +87,8 @@
         '<div class="fc"><div class="ic"></div><h3>Code Copilot</h3><p>Context-aware suggestions across your entire repository.</p></div>' +
         '<div class="fc"><div class="ic"></div><h3>Auto Docs</h3><p>Documentation that writes and updates itself as you build.</p></div></div></div>',
       pricing: '<div class="wrap"><h2>Simple pricing</h2><p class="lead">Start free. Upgrade when you scale.</p>' +
-        '<div class="plans"><div class="plan"><h3>Starter</h3><div class="pr">$0</div><ul><li>Up to 3 projects</li><li>Community support</li><li>Core AI tools</li></ul><a class="pick">Choose</a></div>' +
-        '<div class="plan pro"><h3>Pro</h3><div class="pr">$29</div><ul><li>Unlimited projects</li><li>Priority AI compute</li><li>Team collaboration</li></ul><a class="pick">Choose Pro</a></div></div></div>',
+        '<div class="plans"><div class="plan"><h3>Starter</h3><div class="pr">₹0</div><ul><li>Up to 3 projects</li><li>Community support</li><li>Core AI tools</li></ul><a class="pick">Choose</a></div>' +
+        '<div class="plan pro"><h3>Pro</h3><div class="pr">₹2,499</div><ul><li>Unlimited projects</li><li>Priority AI compute</li><li>Team collaboration</li></ul><a class="pick">Choose Pro</a></div></div></div>',
       contact: '<div class="wrap"><h2>Talk to us</h2><p class="lead">Tell us what you\'re building.</p>' +
         '<div class="form"><input placeholder="Work email"><input placeholder="Company"><textarea rows="4" placeholder="What do you want to automate?"></textarea><button class="b1">Send message</button></div></div>'
     }
@@ -127,11 +127,11 @@
         '<p class="sub">Seasonal tasting menus crafted from the day\'s finest produce, served in the heart of the old quarter.</p>' +
         '<a class="rsv" data-go="reserve">Reserve a table</a><div class="hero-img"></div></div>',
       menu: '<div class="wrap"><h2>Tasting Menu</h2><p class="lead">Five courses · paired wines available</p>' +
-        '<div class="dish"><div class="n">Heirloom Beetroot<small>goat curd, walnut, aged balsamic</small></div><div class="d"></div><div class="p">$18</div></div>' +
-        '<div class="dish"><div class="n">Hand-rolled Agnolotti<small>brown butter, sage, parmigiano</small></div><div class="d"></div><div class="p">$24</div></div>' +
-        '<div class="dish"><div class="n">Line-caught Sea Bass<small>fennel, saffron, citrus beurre blanc</small></div><div class="d"></div><div class="p">$32</div></div>' +
-        '<div class="dish"><div class="n">Dry-aged Duck<small>cherry, endive, juniper jus</small></div><div class="d"></div><div class="p">$36</div></div>' +
-        '<div class="dish"><div class="n">Dark Chocolate Délice<small>hazelnut praline, sea salt</small></div><div class="d"></div><div class="p">$14</div></div></div>',
+        '<div class="dish"><div class="n">Heirloom Beetroot<small>goat curd, walnut, aged balsamic</small></div><div class="d"></div><div class="p">₹650</div></div>' +
+        '<div class="dish"><div class="n">Hand-rolled Agnolotti<small>brown butter, sage, parmigiano</small></div><div class="d"></div><div class="p">₹850</div></div>' +
+        '<div class="dish"><div class="n">Line-caught Sea Bass<small>fennel, saffron, citrus beurre blanc</small></div><div class="d"></div><div class="p">₹1,200</div></div>' +
+        '<div class="dish"><div class="n">Dry-aged Duck<small>cherry, endive, juniper jus</small></div><div class="d"></div><div class="p">₹1,350</div></div>' +
+        '<div class="dish"><div class="n">Dark Chocolate Délice<small>hazelnut praline, sea salt</small></div><div class="d"></div><div class="p">₹500</div></div></div>',
       story: '<div class="wrap"><h2>Our story</h2><p class="lead">Rooted in craft and season.</p>' +
         '<div class="story"><div><p>Saveur began as a six-table room with a single wood oven. A decade on, our philosophy is unchanged — respect the produce, cook with restraint, and let every plate speak of its season.</p>' +
         '<p>Everything is made in-house, from the sourdough to the petit fours.</p>' +
@@ -182,7 +182,7 @@
       trainers: '<div class="wrap"><h2>Meet the coaches</h2><p class="lead">Certified. Relentless.</p>' +
         '<div class="tr"><div class="p">Marcus</div><div class="p">Elena</div><div class="p">Deshawn</div></div></div>',
       join: '<div class="wrap"><h2>Membership</h2><p class="lead">No contracts. Cancel anytime.</p>' +
-        '<div class="plan hot"><h3 style="font-family:Oswald;text-transform:uppercase">Unlimited</h3><div class="pr">$49<span style="font-size:1rem;color:#9a9a9a">/mo</span></div><ul><li>All classes included</li><li>24/7 gym access</li><li>Free intro session</li><li>Nutrition guide</li></ul><a class="b1" style="display:block;text-align:center;margin-top:18px">Join now</a></div></div>'
+        '<div class="plan hot"><h3 style="font-family:Oswald;text-transform:uppercase">Unlimited</h3><div class="pr">₹1,999<span style="font-size:1rem;color:#9a9a9a">/mo</span></div><ul><li>All classes included</li><li>24/7 gym access</li><li>Free intro session</li><li>Nutrition guide</li></ul><a class="b1" style="display:block;text-align:center;margin-top:18px">Join now</a></div></div>'
     }
   });
 
@@ -216,12 +216,12 @@
     pages: {
       home: '<div class="wrap"><div class="hero"><div><h1>The quiet<br>edit.</h1><p>Considered essentials in natural fibres — made to last, designed to layer.</p><a class="shop" data-go="shop">Shop the collection</a></div><div class="im"></div></div></div>',
       shop: '<div class="wrap"><h2>New arrivals</h2><p class="lead">Autumn / Winter</p>' +
-        '<div class="pg"><div class="pc"><div class="im"></div><h3>Wool Overcoat</h3><div class="pr">$240</div></div>' +
-        '<div class="pc"><div class="im"></div><h3>Silk Blouse</h3><div class="pr">$120</div></div>' +
-        '<div class="pc"><div class="im"></div><h3>Tailored Trouser</h3><div class="pr">$140</div></div>' +
-        '<div class="pc"><div class="im"></div><h3>Cashmere Knit</h3><div class="pr">$180</div></div>' +
-        '<div class="pc"><div class="im"></div><h3>Linen Shirt</h3><div class="pr">$90</div></div>' +
-        '<div class="pc"><div class="im"></div><h3>Leather Tote</h3><div class="pr">$260</div></div></div></div>',
+        '<div class="pg"><div class="pc"><div class="im"></div><h3>Wool Overcoat</h3><div class="pr">₹18,000</div></div>' +
+        '<div class="pc"><div class="im"></div><h3>Silk Blouse</h3><div class="pr">₹8,900</div></div>' +
+        '<div class="pc"><div class="im"></div><h3>Tailored Trouser</h3><div class="pr">₹10,500</div></div>' +
+        '<div class="pc"><div class="im"></div><h3>Cashmere Knit</h3><div class="pr">₹13,500</div></div>' +
+        '<div class="pc"><div class="im"></div><h3>Linen Shirt</h3><div class="pr">₹6,500</div></div>' +
+        '<div class="pc"><div class="im"></div><h3>Leather Tote</h3><div class="pr">₹19,500</div></div></div></div>',
       lookbook: '<div class="wrap"><h2>Lookbook</h2><p class="lead">A/W campaign</p><div class="mosaic"><div></div><div></div><div></div><div></div><div></div></div></div>',
       contact: '<div class="wrap"><h2>Contact</h2><p class="lead">Client care · Mon–Sat</p><div class="cform"><input placeholder="Name"><input placeholder="Email"><textarea rows="4" placeholder="How can we help?"></textarea><a class="shop" style="border:0;background:#1a1a1a;color:#fff">Send</a></div></div>'
     }
