@@ -23,7 +23,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png?v=2">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="style.css?v=21">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css?v=22">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,7 +48,7 @@
   </script>
 </head>
 <body>
-  <header>
+  <header class="glassnav">
     <div class="container nav">
       <a href="index.html" class="logo"><img src="logo-mark.png?v=2" class="logo-mark" alt="SRATECH logo" width="30" height="30">SRA<span>TECH</span> <span class="dot">•</span></a>
       <ul class="nav-links" id="menu">
@@ -325,39 +327,29 @@
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS ===== -->
+  <!-- ===== HOW WE WORK ===== -->
   <section class="band">
     <div class="container">
       <div class="section-head center">
-        <p class="eyebrow">Testimonials</p>
-        <h2>Teams that trusted us with the hard parts</h2>
-        <p>What founders and product leads say after shipping with SRATECH.</p>
+        <p class="eyebrow">How we work</p>
+        <h2>What working with us actually feels like</h2>
+        <p>No account managers, no surprise invoices. Just engineers who care about your outcome.</p>
       </div>
-      <div class="tst-grid">
-        <div class="tst">
-          <div class="stars" aria-label="5 out of 5">★★★★★</div>
-          <blockquote>They rebuilt our booking platform in ten weeks and it just works. What stood out was the weekly demo — we always knew exactly where the project stood.</blockquote>
-          <div class="tst-who"><div class="tst-av">AR</div><div><div class="tst-name">Aditya Raghav</div><div class="tst-role">Co-founder, StayNest</div></div></div>
+      <div class="grid grid-3">
+        <div class="card">
+          <span class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 8.3-7 9-4-.7-7-4.5-7-9V6l7-3z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+          <h3>Weekly demos, always</h3>
+          <p>You see working software every week — no black boxes, no month-long silences. You always know exactly where your project stands.</p>
         </div>
-        <div class="tst">
-          <div class="stars" aria-label="5 out of 5">★★★★★</div>
-          <blockquote>We came in with a messy spec and left with a clean architecture. The team pushed back where it mattered instead of just building what we asked for.</blockquote>
-          <div class="tst-who"><div class="tst-av">PM</div><div><div class="tst-name">Priya Menon</div><div class="tst-role">Head of Product, Finlyte</div></div></div>
+        <div class="card">
+          <span class="svc-ico"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span>
+          <h3>Fixed, honest pricing</h3>
+          <p>A firm quote before we start, not after. No scope games and no invoices you didn't see coming — the number we agree is the number you pay.</p>
         </div>
-        <div class="tst">
-          <div class="stars" aria-label="5 out of 5">★★★★★</div>
-          <blockquote>The AI document pipeline they built cut our manual review time by roughly 70%. Six months on, it has needed almost no maintenance.</blockquote>
-          <div class="tst-who"><div class="tst-av">DK</div><div><div class="tst-name">Daniel Kaur</div><div class="tst-role">Operations Director, Medley Health</div></div></div>
-        </div>
-        <div class="tst">
-          <div class="stars" aria-label="5 out of 5">★★★★★</div>
-          <blockquote>Our Flutter app shipped to both stores on schedule, and the handover documentation was genuinely good — our in-house team picked it up in days.</blockquote>
-          <div class="tst-who"><div class="tst-av">SV</div><div><div class="tst-name">Sameer Vora</div><div class="tst-role">CTO, Kiran Logistics</div></div></div>
-        </div>
-        <div class="tst">
-          <div class="stars" aria-label="5 out of 5">★★★★★</div>
-          <blockquote>Responsive, honest about timelines, and no surprise invoices. After two agencies that overpromised, working with SRATECH was a relief.</blockquote>
-          <div class="tst-who"><div class="tst-av">EO</div><div><div class="tst-name">Emeka Okafor</div><div class="tst-role">Founder, Tradeloop</div></div></div>
+        <div class="card">
+          <span class="svc-ico"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-3.5 7.5-8.5 9C7.5 19.5 4 17 4 12V6l8-3 9 3z" fill="none"/></svg></span>
+          <h3>You own everything</h3>
+          <p>On final payment, all source code, design files and repository access transfer to you. No vendor lock-in, no licence fees to us — ever.</p>
         </div>
       </div>
     </div>
@@ -508,6 +500,6 @@
       <div class="foot-bottom">© 2026 SRATECH. All rights reserved.</div>
     </div>
   </footer>
-  <script src="main.js?v=21"></script>
+  <script src="main.js?v=22"></script>
 </body>
 </html>

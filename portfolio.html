@@ -20,10 +20,12 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png?v=2">
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="style.css?v=21">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css?v=22">
 </head>
 <body>
-  <header>
+  <header class="glassnav">
     <div class="container nav">
       <a href="index.html" class="logo"><img src="logo-mark.png?v=2" class="logo-mark" alt="SRATECH logo" width="30" height="30">SRA<span>TECH</span> <span class="dot">•</span></a>
       <ul class="nav-links" id="menu">
@@ -47,41 +49,11 @@
 
   <section style="padding-top:20px;">
     <div class="container">
-      <div class="filter-bar" id="workFilter">
-        <button class="filter-chip active" data-filter="all">All work</button>
-        <button class="filter-chip" data-filter="ecommerce">E-commerce</button>
-        <button class="filter-chip" data-filter="logistics">Logistics</button>
-        <button class="filter-chip" data-filter="saas">SaaS</button>
-        <button class="filter-chip" data-filter="manufacturing">Manufacturing</button>
-        <button class="filter-chip" data-filter="analytics">Analytics</button>
-        <button class="filter-chip" data-filter="healthcare">Healthcare</button>
-      </div>
-
-      <div class="work-grid" id="workGrid">
-        <article class="work-card" data-cat="ecommerce">
-          <div class="work-thumb" style="--g1:#2563eb;--g2:#0e2a63;"><span class="work-cat">E-commerce</span><span class="work-metric">↗ 42% mobile conversions</span></div>
-          <div class="work-body"><h3>ShopFlow — Headless commerce rebuild</h3><p>A retail brand's slow store was losing mobile sales. We rebuilt it on a headless stack for speed.</p><div class="tags"><span class="tag">Next.js</span><span class="tag">Shopify</span><span class="tag">Vercel</span></div></div>
-        </article>
-        <article class="work-card" data-cat="logistics">
-          <div class="work-thumb" style="--g1:#0ea5e9;--g2:#0c3b5e;"><span class="work-cat">Logistics</span><span class="work-metric">↗ 30% faster deliveries</span></div>
-          <div class="work-body"><h3>TrackMate — Fleet tracking app</h3><p>Manual dispatch was error-prone. We built a real-time driver &amp; tracking app for the field team.</p><div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Maps API</span></div></div>
-        </article>
-        <article class="work-card" data-cat="saas">
-          <div class="work-thumb" style="--g1:#6366f1;--g2:#26236b;"><span class="work-cat">SaaS</span><span class="work-metric">↘ 55% lower infra cost</span></div>
-          <div class="work-body"><h3>CloudLift — Legacy cloud migration</h3><p>Aging on-prem servers were costly and fragile. We migrated everything to a scalable cloud setup.</p><div class="tags"><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">Terraform</span></div></div>
-        </article>
-        <article class="work-card" data-cat="manufacturing">
-          <div class="work-thumb" style="--g1:#3b82f6;--g2:#14306b;"><span class="work-cat">Manufacturing</span><span class="work-metric">↗ 3× faster reporting</span></div>
-          <div class="work-body"><h3>OperaCore — Custom ERP platform</h3><p>Disconnected spreadsheets slowed operations. We delivered a unified ERP for inventory &amp; orders.</p><div class="tags"><span class="tag">.NET</span><span class="tag">SQL Server</span><span class="tag">Azure</span></div></div>
-        </article>
-        <article class="work-card" data-cat="analytics">
-          <div class="work-thumb" style="--g1:#22a3d6;--g2:#123a52;"><span class="work-cat">Analytics</span><span class="work-metric">↗ 20% higher retention</span></div>
-          <div class="work-body"><h3>InsightDesk — Analytics dashboard</h3><p>A startup needed live product metrics for its customers. We built a real-time analytics dashboard.</p><div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span></div></div>
-        </article>
-        <article class="work-card" data-cat="healthcare">
-          <div class="work-thumb" style="--g1:#4f7df0;--g2:#1a2c63;"><span class="work-cat">Healthcare</span><span class="work-metric">↘ 60% fewer phone bookings</span></div>
-          <div class="work-body"><h3>CareSync — Patient portal</h3><p>A clinic needed secure appointment &amp; records access. We built a HIPAA-conscious patient portal.</p><div class="tags"><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">AWS</span></div></div>
-        </article>
+      <div class="work-soon">
+        <span class="badge">Case studies in the works</span>
+        <h3>Detailed case studies are on the way</h3>
+        <p>We're putting together in-depth write-ups of recent work across e-commerce, logistics, SaaS, manufacturing and healthcare — with the real problems, decisions and outcomes behind each build. Want to see relevant examples for your project sooner?</p>
+        <a href="start.html" class="btn btn-primary">Request our work samples</a>
       </div>
     </div>
   </section>
@@ -102,6 +74,6 @@
       <div class="foot-bottom">© 2026 SRATECH. All rights reserved. — Built to scale. Engineered to last.</div>
     </div>
   </footer>
-  <script src="main.js?v=21"></script>
+  <script src="main.js?v=22"></script>
 </body>
 </html>
