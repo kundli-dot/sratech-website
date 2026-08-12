@@ -1263,3 +1263,18 @@ body.pf-lock { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .pf-drawer, .pf-scrim { transition: none; }
 }
+
+/* ============================================================
+   Breadcrumbs (service pages)
+   ============================================================ */
+.crumbs { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: .85rem; color: var(--text-dim); margin-bottom: 18px; }
+.crumbs a { color: var(--text-dim); transition: color .2s; }
+.crumbs a:hover { color: var(--blue-light); }
+.crumbs span { color: var(--border); }
+.crumbs .here { color: var(--text); }
+.svc-lead { font-size: 1.15rem; color: var(--text-dim); max-width: 640px; line-height: 1.7; margin-bottom: 30px; }
+
+/* Service card "Learn more" link */
+.card-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: .9rem; font-weight: 600; color: var(--blue-light); transition: gap .2s; }
+.card-link:hover { gap: 10px; }
+.card-link + .card-link { margin-left: 18px; }

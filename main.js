@@ -43,11 +43,11 @@
   btn.onclick = null;
 
   var links = [
-    ['Home', 'index.html'],
-    ['Services', 'services.html'],
-    ['Portfolio', 'portfolio.html'],
-    ['About', 'about.html'],
-    ['Contact', 'contact.html']
+    ['Home', '/index.html'],
+    ['Services', '/services.html'],
+    ['Portfolio', '/portfolio.html'],
+    ['About', '/about.html'],
+    ['Contact', '/contact.html']
   ];
   var ov = document.createElement('div');
   ov.className = 'menu-overlay';
