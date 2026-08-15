@@ -1296,3 +1296,15 @@ body.pf-lock { overflow: hidden; }
 .pricing-note li { position: relative; padding-left: 18px; color: var(--text-dim); font-size: .92rem; }
 .pricing-note li::before { content: "•"; position: absolute; left: 0; color: var(--blue-light); }
 .pricing-note p { color: var(--text-dim); font-size: .95rem; margin-top: 14px; }
+
+/* ============================================================
+   Portfolio drawer — live-site embed extras
+   ============================================================ */
+.pf-chrome .pf-visit { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: .78rem; font-weight: 600; color: var(--blue-light); background: var(--bg-card); border: 1px solid var(--border); padding: 6px 13px; border-radius: 20px; white-space: nowrap; transition: border-color .2s, background .2s; }
+.pf-chrome .pf-visit:hover { border-color: var(--blue); background: var(--bg-card-hover); }
+.pf-frame { background: #0f1114; }
+.pf-strip { padding: 14px 18px; border-top: 1px solid var(--glass-brd); background: #0f1114; }
+.pf-strip p { color: var(--text-dim); font-size: .9rem; line-height: 1.6; margin: 0 0 12px; }
+.pf-strip .tags { margin-bottom: 14px; }
+.pf-strip .btn { padding: 11px 22px; font-size: .9rem; }
+.pf-card .pf-live { display: inline-flex; align-items: center; gap: 6px; margin-left: 14px; font-size: .82rem; font-weight: 600; color: var(--text-dim); }
