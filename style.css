@@ -1278,3 +1278,21 @@ body.pf-lock { overflow: hidden; }
 .card-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: .9rem; font-weight: 600; color: var(--blue-light); transition: gap .2s; }
 .card-link:hover { gap: 10px; }
 .card-link + .card-link { margin-left: 18px; }
+
+/* ============================================================
+   Pricing page — auto-fit grids + helpers (reuses .price-card)
+   ============================================================ */
+.price-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(248px, 1fr)); gap: var(--s3); align-items: stretch; }
+.price-wrap.single { grid-template-columns: minmax(0, 440px); justify-content: start; }
+.price-wrap .amt { font-size: 2.05rem; }
+.price-card.featured .amt { font-size: 2.25rem; }
+.pc-best { color: var(--text-dim); font-size: .86rem; line-height: 1.5; margin: -2px 0 16px; }
+.price-card.featured .pc-best { color: rgba(255,255,255,.85); }
+.price-cat + .price-cat { margin-top: var(--s6); }
+.price-cat > .section-head { margin-bottom: var(--s4); }
+.pricing-note { background: var(--glass); border: 1px solid var(--glass-brd); border-radius: 18px; padding: 28px 30px; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.pricing-note h3 { font-family: "Sora", sans-serif; font-size: 1.15rem; margin-bottom: 12px; }
+.pricing-note ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 6px 20px; }
+.pricing-note li { position: relative; padding-left: 18px; color: var(--text-dim); font-size: .92rem; }
+.pricing-note li::before { content: "•"; position: absolute; left: 0; color: var(--blue-light); }
+.pricing-note p { color: var(--text-dim); font-size: .95rem; margin-top: 14px; }
