@@ -162,3 +162,23 @@
   else window.addEventListener('load', place);
   setTimeout(place, 60);
 })();
+
+// "What we do" — sticky scroll: swap the pinned image to match the block in view
+(function () {
+  var wwd = document.querySelector('.wwd');
+  if (!wwd) return;
+  var frames = wwd.querySelectorAll('.wwd-frame');
+  var blocks = wwd.querySelectorAll('.wwd-block');
+  function activate(i) {
+    frames.forEach(function (f, idx) { f.classList.toggle('on', idx === i); });
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) activate(parseInt(e.target.getAttribute('data-wwd'), 10));
+      });
+    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+    blocks.forEach(function (b) { io.observe(b); });
+  }
+  activate(0);
+})();

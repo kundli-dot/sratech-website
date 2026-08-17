@@ -7,9 +7,9 @@
     {
       name: 'JRT-CRM',
       cat: 'Manufacturing IMS + CRM',
-      domain: 'jairoop.web.app',
-      url: 'https://jairoop.web.app',
-      desc: 'A complete textile manufacturing system — orders, production, dispatch, inventory, WhatsApp automation, HR and reporting in one platform. Built on Firebase for a real, live business. Opens a secure sign-in screen.',
+      domain: 'www.jairoop.com',
+      url: 'https://www.jairoop.com',
+      desc: 'A complete manufacturing IMS + CRM built for Jai Roop Textile Pvt Ltd — orders, production, dispatch, inventory, WhatsApp automation, HR and reporting in one live platform. Opens a secure sign-in screen.',
       tags: ['Firebase', 'Node.js', 'Automation', 'CRM'],
       c1: '#2f7bf0', c2: '#153a86'
     },

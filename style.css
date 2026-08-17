@@ -28,7 +28,7 @@
   --text-dim: #a9afb0;
   --border: #4c5152;
   --border-soft: #454a4b;
-  --max: 1280px;
+  --max: 1340px;
   --ring: rgba(99,102,241,.55);
 
   /* 8px spacing scale */
@@ -1142,8 +1142,8 @@ header.glassnav, header.scrolled {
 }
 
 /* --- Section rhythm on 8px grid --- */
-section { padding: var(--s9) 0; }
-.section-head { margin-bottom: var(--s7); }
+section { padding: 72px 0; }
+.section-head { margin-bottom: 44px; }
 .grid { gap: var(--s3); }
 .stats { gap: var(--s3); }
 
@@ -1308,3 +1308,59 @@ body.pf-lock { overflow: hidden; }
 .pf-strip .tags { margin-bottom: 14px; }
 .pf-strip .btn { padding: 11px 22px; font-size: .9rem; }
 .pf-card .pf-live { display: inline-flex; align-items: center; gap: 6px; margin-left: 14px; font-size: .82rem; font-weight: 600; color: var(--text-dim); }
+
+/* ============================================================
+   "What we do" — sticky scroll with assembling image tiles
+   ============================================================ */
+.wwd { display: grid; grid-template-columns: 1fr 1.02fr; gap: 56px; align-items: start; }
+.wwd-media { position: sticky; top: 92px; }
+.wwd-stage { position: relative; width: 100%; aspect-ratio: 4 / 3; border-radius: 20px; overflow: hidden; background: #eef2f8; box-shadow: var(--sh-lg); }
+.wwd-frame { position: absolute; inset: 0; opacity: 0; transition: opacity .2s ease; }
+.wwd-frame.on { opacity: 1; }
+.wwd-frame .base { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
+.wwd-tiles { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(3,1fr); grid-template-rows: repeat(3,1fr); }
+.wwd-tiles .t { background-image: var(--img); background-size: 300% 300%; background-repeat: no-repeat; opacity: 0; will-change: transform, opacity; }
+.wwd-tiles .t:nth-child(1){background-position:0 0}
+.wwd-tiles .t:nth-child(2){background-position:50% 0}
+.wwd-tiles .t:nth-child(3){background-position:100% 0}
+.wwd-tiles .t:nth-child(4){background-position:0 50%}
+.wwd-tiles .t:nth-child(5){background-position:50% 50%}
+.wwd-tiles .t:nth-child(6){background-position:100% 50%}
+.wwd-tiles .t:nth-child(7){background-position:0 100%}
+.wwd-tiles .t:nth-child(8){background-position:50% 100%}
+.wwd-tiles .t:nth-child(9){background-position:100% 100%}
+.wwd-frame.on .base { animation: wwdBase .9s ease both; }
+.wwd-frame.on .t { animation: wwdTile .8s cubic-bezier(.2,.8,.2,1) both; }
+.wwd-frame.on .t:nth-child(1){--dx:-72px;--dy:-60px;--r:-14deg;animation-delay:.00s}
+.wwd-frame.on .t:nth-child(2){--dx:0;--dy:-84px;--r:9deg;animation-delay:.05s}
+.wwd-frame.on .t:nth-child(3){--dx:72px;--dy:-60px;--r:14deg;animation-delay:.10s}
+.wwd-frame.on .t:nth-child(4){--dx:-88px;--dy:0;--r:11deg;animation-delay:.06s}
+.wwd-frame.on .t:nth-child(5){--dx:0;--dy:0;--r:-16deg;animation-delay:.13s}
+.wwd-frame.on .t:nth-child(6){--dx:88px;--dy:0;--r:-11deg;animation-delay:.09s}
+.wwd-frame.on .t:nth-child(7){--dx:-72px;--dy:60px;--r:12deg;animation-delay:.12s}
+.wwd-frame.on .t:nth-child(8){--dx:0;--dy:84px;--r:-9deg;animation-delay:.16s}
+.wwd-frame.on .t:nth-child(9){--dx:72px;--dy:60px;--r:14deg;animation-delay:.20s}
+@keyframes wwdTile {
+  0%   { opacity: 0; transform: translate(var(--dx,0), var(--dy,0)) rotate(var(--r,0)) scale(.35); }
+  22%  { opacity: 1; }
+  68%  { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: none; }
+}
+@keyframes wwdBase { 0%, 58% { opacity: 0; } 100% { opacity: 1; } }
+
+.wwd-copy { display: flex; flex-direction: column; }
+.wwd-block { min-height: 76vh; display: flex; flex-direction: column; justify-content: center; padding: 18px 0; }
+.wwd-block .num { color: var(--blue); font-weight: 700; font-size: .9rem; margin-bottom: 14px; display: block; }
+.wwd-block h3 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: 16px; }
+.wwd-block > p { color: var(--text-dim); font-size: 1.05rem; margin-bottom: 22px; max-width: 460px; }
+
+@media (max-width: 860px) {
+  .wwd { grid-template-columns: 1fr; gap: 18px; }
+  .wwd-media { position: sticky; top: 64px; z-index: 1; }
+  .wwd-stage { aspect-ratio: 16 / 10; box-shadow: var(--sh-md); }
+  .wwd-block { min-height: 58vh; padding: 12px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wwd-frame.on .t { animation: none; opacity: 0; }
+  .wwd-frame.on .base { animation: none; opacity: 1; }
+}
