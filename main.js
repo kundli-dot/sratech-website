@@ -163,22 +163,29 @@
   setTimeout(place, 60);
 })();
 
-// "What we do" — sticky scroll: swap the pinned image to match the block in view
+// "What we do" — sticky scroll: swap the pinned image to the block nearest
+// the viewport centre. Scroll-driven (rAF-throttled) for reliable behaviour.
 (function () {
   var wwd = document.querySelector('.wwd');
   if (!wwd) return;
   var frames = wwd.querySelectorAll('.wwd-frame');
-  var blocks = wwd.querySelectorAll('.wwd-block');
-  function activate(i) {
-    frames.forEach(function (f, idx) { f.classList.toggle('on', idx === i); });
+  var blocks = Array.prototype.slice.call(wwd.querySelectorAll('.wwd-block'));
+  var cur = -1, ticking = false;
+  function update() {
+    ticking = false;
+    var mid = window.innerHeight / 2, best = 0, bestDist = Infinity;
+    blocks.forEach(function (b, i) {
+      var r = b.getBoundingClientRect();
+      var d = Math.abs((r.top + r.height / 2) - mid);
+      if (d < bestDist) { bestDist = d; best = i; }
+    });
+    if (best !== cur) {
+      cur = best;
+      frames.forEach(function (f, idx) { f.classList.toggle('on', idx === best); });
+    }
   }
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) activate(parseInt(e.target.getAttribute('data-wwd'), 10));
-      });
-    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-    blocks.forEach(function (b) { io.observe(b); });
-  }
-  activate(0);
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
 })();
