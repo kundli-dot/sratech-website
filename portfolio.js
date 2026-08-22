@@ -1,14 +1,23 @@
-// SRATECH — Portfolio: real, shipped projects with live previews.
-// Each card opens a slide-over that embeds the actual live site in an iframe,
-// plus a prominent "Open live site" link to view it full-screen in a new tab.
+// SRATECH — Portfolio: real, shipped projects.
+// Cards open a slide-over: live sites embed the actual page (+ "Open live site"),
+// image-only projects show a screenshot. Covers: image collage, single shot, or mock.
 (function () {
 
   var PROJECTS = [
     {
-      name: 'JRT-CRM',
-      cat: 'Manufacturing IMS + CRM',
+      name: 'Jairoop Textiles',
+      cat: 'Company Website',
       domain: 'www.jairoop.com',
       url: 'https://www.jairoop.com',
+      desc: 'The official website for Jai Roop Textile Pvt Ltd — an elastic and satin-ribbon manufacturer in Gurugram. Product showcase, catalogue and enquiry, designed and developed by SRATECH.',
+      tags: ['Company Website', 'Responsive', 'SEO'],
+      images: ['jairoop/jr1.jpg', 'jairoop/jr2.jpg', 'jairoop/jr3.jpg', 'jairoop/jr4.jpg']
+    },
+    {
+      name: 'JRT-CRM',
+      cat: 'Manufacturing IMS + CRM',
+      domain: 'jairoop.web.app',
+      url: 'https://jairoop.web.app',
       desc: 'A complete manufacturing IMS + CRM built for Jai Roop Textile Pvt Ltd — orders, production, dispatch, inventory, WhatsApp automation, HR and reporting in one live platform. Opens a secure sign-in screen.',
       tags: ['Firebase', 'Node.js', 'Automation', 'CRM'],
       c1: '#2f7bf0', c2: '#153a86'
@@ -39,30 +48,49 @@
       desc: 'An offline-friendly app that reads early health signals from photos of the eye, tongue and face — designed as helpful guidance, not a medical diagnosis.',
       tags: ['Health', 'AI', 'PWA'],
       c1: '#10b981', c2: '#0e7a5f'
+    },
+    {
+      name: 'Crosia Lace Software',
+      cat: 'Design Software',
+      domain: 'Desktop application',
+      desc: 'A specialised design tool for Crosia (crochet lace) machines — lay out spindle-by-spindle dot patterns with Dot1/Dot2 and mirror, then export machine-ready designs. Built for a real lace-manufacturing workflow.',
+      tags: ['Desktop App', 'Design Tool', 'Manufacturing'],
+      img: 'crosia-design.jpg'
     }
   ];
 
   var grid = document.getElementById('pfGrid');
   if (!grid) return;
 
+  function coverHTML(p) {
+    if (p.images) {
+      return '<div class="pf-cover has-media"><span class="pf-cat">' + p.cat + '</span>' +
+        '<div class="pf-collage">' + p.images.map(function (s) {
+          return '<img src="' + s + '" alt="" loading="lazy">';
+        }).join('') + '</div></div>';
+    }
+    if (p.img) {
+      return '<div class="pf-cover has-media"><span class="pf-cat">' + p.cat + '</span>' +
+        '<img class="pf-single" src="' + p.img + '" alt="' + p.name + ' screenshot" loading="lazy"></div>';
+    }
+    return '<div class="pf-cover" style="--c1:' + p.c1 + ';--c2:' + p.c2 + '"><span class="pf-cat">' + p.cat + '</span>' +
+      '<div class="pf-mock"><div class="bar"><i></i><i></i><i></i></div><div class="body"><div class="h"></div><div class="h2"></div><div class="h3"></div><div class="row"><span></span><span></span><span></span></div></div></div></div>';
+  }
+
   PROJECTS.forEach(function (p) {
     var card = document.createElement('button');
     card.className = 'pf-card';
     card.type = 'button';
     card.setAttribute('aria-label', 'Preview the ' + p.name + ' project');
-    card.innerHTML =
-      '<div class="pf-cover" style="--c1:' + p.c1 + ';--c2:' + p.c2 + '">' +
-        '<span class="pf-cat">' + p.cat + '</span>' +
-        '<div class="pf-mock"><div class="bar"><i></i><i></i><i></i></div><div class="body"><div class="h"></div><div class="h2"></div><div class="h3"></div><div class="row"><span></span><span></span><span></span></div></div></div>' +
-      '</div>' +
+    card.innerHTML = coverHTML(p) +
       '<div class="pf-body"><h3>' + p.name + '</h3><p>' + p.desc + '</p>' +
         '<div class="pf-tags">' + p.tags.map(function (t) { return '<span>' + t + '</span>'; }).join('') + '</div>' +
-        '<span class="pf-open">Open live preview <span class="arw">→</span></span></div>';
+        '<span class="pf-open">' + (p.url ? 'Open live preview' : 'View project') + ' <span class="arw">→</span></span></div>';
     card.addEventListener('click', function () { openDrawer(p); });
     grid.appendChild(card);
   });
 
-  // ---- Slide-over drawer with live iframe ----
+  // ---- Slide-over drawer (live iframe OR screenshot) ----
   var scrim = document.createElement('div');
   scrim.className = 'pf-scrim';
   var drawer = document.createElement('aside');
@@ -76,24 +104,36 @@
     '<div class="pf-chrome"><div class="dots"><i></i><i></i><i></i></div><div class="url" id="pfUrl"></div>' +
       '<a class="pf-visit" id="pfOpen" target="_blank" rel="noopener">Open ↗</a></div>' +
     '<iframe class="pf-frame" id="pfFrame" title="Live project preview" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' +
+    '<img class="pf-shot" id="pfShot" alt="" style="display:none">' +
     '<div class="pf-strip"><p id="pfDesc"></p><div class="tags" id="pfTags"></div>' +
       '<a class="btn btn-primary no-swipe" id="pfVisit" target="_blank" rel="noopener">Visit live site ↗</a></div>';
   document.body.appendChild(scrim);
   document.body.appendChild(drawer);
 
   var frame = document.getElementById('pfFrame');
+  var shot = document.getElementById('pfShot');
+  var elOpen = document.getElementById('pfOpen');
+  var elVisit = document.getElementById('pfVisit');
   var lastFocus = null;
 
   function openDrawer(p) {
     lastFocus = document.activeElement;
     document.getElementById('pfName').textContent = p.name;
     document.getElementById('pfCat').textContent = p.cat;
-    document.getElementById('pfUrl').textContent = p.url;
+    document.getElementById('pfUrl').textContent = p.url ? p.url : p.domain;
     document.getElementById('pfDesc').textContent = p.desc;
     document.getElementById('pfTags').innerHTML = p.tags.map(function (t) { return '<span class="tag">' + t + '</span>'; }).join('');
-    document.getElementById('pfOpen').href = p.url;
-    document.getElementById('pfVisit').href = p.url;
-    frame.src = p.url;
+
+    if (p.url) {
+      frame.src = p.url; frame.style.display = '';
+      shot.style.display = 'none'; shot.removeAttribute('src');
+      elOpen.href = p.url; elOpen.style.display = '';
+      elVisit.href = p.url; elVisit.style.display = '';
+    } else {
+      frame.removeAttribute('src'); frame.style.display = 'none';
+      shot.src = p.img; shot.style.display = '';
+      elOpen.style.display = 'none'; elVisit.style.display = 'none';
+    }
     scrim.classList.add('open');
     drawer.classList.add('open');
     document.body.classList.add('pf-lock');
@@ -103,7 +143,7 @@
     scrim.classList.remove('open');
     drawer.classList.remove('open');
     document.body.classList.remove('pf-lock');
-    setTimeout(function () { frame.src = 'about:blank'; }, 420);
+    setTimeout(function () { frame.src = 'about:blank'; shot.removeAttribute('src'); }, 420);
     if (lastFocus) lastFocus.focus();
   }
   document.getElementById('pfClose').addEventListener('click', closeDrawer);
