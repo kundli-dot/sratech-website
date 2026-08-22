@@ -1412,3 +1412,7 @@ body.pf-lock { overflow: hidden; }
 }
 .festive-note .em { font-size: 1.1rem; }
 @media (prefers-reduced-motion: reduce) { .festive-fx { display: none; } }
+
+/* Portfolio — mobile-screenshot strips cover */
+.pf-strips { position: absolute; inset: 0; display: flex; gap: 3px; background: #0f1114; }
+.pf-strips img { flex: 1; min-width: 0; height: 100%; object-fit: cover; object-position: top center; display: block; }

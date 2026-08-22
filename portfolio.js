@@ -11,7 +11,7 @@
       url: 'https://www.jairoop.com',
       desc: 'The official website for Jai Roop Textile Pvt Ltd — an elastic and satin-ribbon manufacturer in Gurugram. Product showcase, catalogue and enquiry, designed and developed by SRATECH.',
       tags: ['Company Website', 'Responsive', 'SEO'],
-      images: ['jairoop/jr1.jpg', 'jairoop/jr2.jpg', 'jairoop/jr3.jpg', 'jairoop/jr4.jpg']
+      shots: ['shots/jairoop-1.jpg', 'shots/jairoop-2.jpg', 'shots/jairoop-3.jpg']
     },
     {
       name: 'JRT-CRM',
@@ -29,6 +29,7 @@
       url: 'https://mymistro.com',
       desc: 'An Urban Company-style marketplace that connects customers with local home-service professionals — booking, profiles and service discovery in a clean, modern interface.',
       tags: ['React', 'Supabase', 'Marketplace'],
+      shots: ['shots/mistro-1.jpg', 'shots/mistro-2.jpg', 'shots/mistro-3.jpg'],
       c1: '#8b5cf6', c2: '#4c1d95'
     },
     {
@@ -38,6 +39,7 @@
       url: 'https://sky-heros.web.app',
       desc: 'A fast, colourful sky-shooter arcade game for kids — custom characters, smooth controls and levels, running entirely in the browser.',
       tags: ['HTML5 Game', 'Canvas', 'PWA'],
+      img: 'shots/skyforce.jpg',
       c1: '#0ea5e9', c2: '#0b3b6b'
     },
     {
@@ -47,6 +49,7 @@
       url: 'https://sra-health-checkup.web.app',
       desc: 'An offline-friendly app that reads early health signals from photos of the eye, tongue and face — designed as helpful guidance, not a medical diagnosis.',
       tags: ['Health', 'AI', 'PWA'],
+      shots: ['shots/srahealth-1.jpg', 'shots/srahealth-2.jpg'],
       c1: '#10b981', c2: '#0e7a5f'
     },
     {
@@ -63,6 +66,12 @@
   if (!grid) return;
 
   function coverHTML(p) {
+    if (p.shots) {
+      return '<div class="pf-cover has-media"><span class="pf-cat">' + p.cat + '</span>' +
+        '<div class="pf-strips">' + p.shots.map(function (s) {
+          return '<img src="' + s + '" alt="" loading="lazy">';
+        }).join('') + '</div></div>';
+    }
     if (p.images) {
       return '<div class="pf-cover has-media"><span class="pf-cat">' + p.cat + '</span>' +
         '<div class="pf-collage">' + p.images.map(function (s) {
