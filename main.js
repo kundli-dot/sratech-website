@@ -201,7 +201,7 @@
     { name: 'New Year',            date: '2026-01-01', em: '🎉', c1: '#7c3aed', c2: '#2563eb', fx: 'confetti' },
     { name: 'Holi',                date: '2026-03-04', em: '🎨', c1: '#db2777', c2: '#16a34a', fx: 'color' },
     { name: 'Eid',                 date: '2026-03-20', em: '🌙', c1: '#0e7490', c2: '#15803d', fx: 'sparkle' },
-    { name: 'Raksha Bandhan',      date: '2026-08-28', em: '🪢', c1: '#b91c1c', c2: '#b45309', fx: 'petal' },
+    { name: 'Raksha Bandhan',      date: '2026-08-28', em: '🪢', c1: '#b91c1c', c2: '#b45309', fx: 'petal' , banner: 'festive-rakhi.jpg' },
     { name: 'Ganesh Chaturthi',    date: '2026-09-14', em: '🕉', c1: '#c2410c', c2: '#b91c1c', fx: 'petal' },
     { name: 'Navratri & Dussehra', date: '2026-10-20', em: '🪔', c1: '#c026d3', c2: '#ea580c', fx: 'color' },
     { name: 'Diwali',              date: '2026-11-08', em: '🪔', c1: '#b45309', c2: '#b91c1c', fx: 'diya' },
@@ -210,7 +210,7 @@
     { name: 'New Year',            date: '2027-01-01', em: '🎉', c1: '#7c3aed', c2: '#2563eb', fx: 'confetti' },
     { name: 'Holi',                date: '2027-03-22', em: '🎨', c1: '#db2777', c2: '#16a34a', fx: 'color' },
     { name: 'Eid',                 date: '2027-03-10', em: '🌙', c1: '#0e7490', c2: '#15803d', fx: 'sparkle' },
-    { name: 'Raksha Bandhan',      date: '2027-08-17', em: '🪢', c1: '#b91c1c', c2: '#b45309', fx: 'petal' },
+    { name: 'Raksha Bandhan',      date: '2027-08-17', em: '🪢', c1: '#b91c1c', c2: '#b45309', fx: 'petal' , banner: 'festive-rakhi.jpg' },
     { name: 'Ganesh Chaturthi',    date: '2027-09-04', em: '🕉', c1: '#c2410c', c2: '#b91c1c', fx: 'petal' },
     { name: 'Navratri & Dussehra', date: '2027-10-09', em: '🪔', c1: '#c026d3', c2: '#ea580c', fx: 'color' },
     { name: 'Diwali',              date: '2027-10-29', em: '🪔', c1: '#b45309', c2: '#b91c1c', fx: 'diya' },
@@ -237,16 +237,23 @@
   document.documentElement.style.setProperty('--fc1', fest.c1);
   document.documentElement.style.setProperty('--fc2', fest.c2);
 
-  // Promo bar (dismissible for the session)
+  // Promo bar / banner (dismissible for the session)
   if (sessionStorage.getItem('festHide') !== fest.name) {
-    var bar = document.createElement('div');
-    bar.className = 'festive-bar';
-    bar.innerHTML = '<span class="em">' + fest.em + '</span><span><strong>' + fest.name +
-      ' Special</strong> — flat ' + DISCOUNT + ' OFF on every service</span>' +
-      '<a class="fb-cta" href="/contact.html">Claim offer</a><button class="fb-x" aria-label="Dismiss offer">✕</button>';
-    document.body.insertBefore(bar, document.body.firstChild);
-    bar.querySelector('.fb-x').addEventListener('click', function () {
-      bar.remove(); sessionStorage.setItem('festHide', fest.name);
+    var top = document.createElement('div');
+    if (fest.banner) {
+      top.className = 'festive-banner';
+      top.innerHTML = '<a href="/contact.html" aria-label="' + fest.name + ' offer — ' + DISCOUNT + ' off on every service">' +
+        '<img src="/' + fest.banner + '" alt="Happy ' + fest.name + ' — enjoy ' + DISCOUNT + ' off on every service"></a>' +
+        '<button class="fb-x" aria-label="Dismiss offer">✕</button>';
+    } else {
+      top.className = 'festive-bar';
+      top.innerHTML = '<span class="em">' + fest.em + '</span><span><strong>' + fest.name +
+        ' Special</strong> — flat ' + DISCOUNT + ' OFF on every service</span>' +
+        '<a class="fb-cta" href="/contact.html">Claim offer</a><button class="fb-x" aria-label="Dismiss offer">✕</button>';
+    }
+    document.body.insertBefore(top, document.body.firstChild);
+    top.querySelector('.fb-x').addEventListener('click', function () {
+      top.remove(); sessionStorage.setItem('festHide', fest.name);
     });
   }
 
