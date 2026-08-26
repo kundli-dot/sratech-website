@@ -1420,8 +1420,8 @@ body.pf-lock { overflow: hidden; }
 /* Festive image banner (e.g. Raksha Bandhan) — full-width above the navbar */
 .festive-banner { position: relative; z-index: 60; display: block; background: #f7efe0; line-height: 0; }
 .festive-banner a { display: block; }
-.festive-banner img { width: 100%; height: auto; max-height: 190px; object-fit: cover; object-position: center 30%; display: block; }
-@media (max-width: 600px) { .festive-banner img { max-height: 150px; } }
+.festive-banner img { width: 100%; height: auto; max-height: 200px; object-fit: cover; object-position: center 55%; display: block; }
+@media (max-width: 600px) { .festive-banner img { max-height: 160px; } }
 .festive-banner .fb-x {
   position: absolute; top: 8px; right: 10px; z-index: 2;
   width: 30px; height: 30px; border-radius: 50%; cursor: pointer;
