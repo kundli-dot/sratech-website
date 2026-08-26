@@ -20,6 +20,7 @@
       url: 'https://jairoop.web.app',
       desc: 'A complete manufacturing IMS + CRM built for Jai Roop Textile Pvt Ltd — orders, production, dispatch, inventory, WhatsApp automation, HR and reporting in one live platform. Opens a secure sign-in screen.',
       tags: ['Firebase', 'Node.js', 'Automation', 'CRM'],
+      shots: ['shots/jrt-1.jpg', 'shots/jrt-2.jpg'],
       c1: '#2f7bf0', c2: '#153a86'
     },
     {
