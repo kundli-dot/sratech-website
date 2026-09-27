@@ -16,11 +16,11 @@
     {
       name: 'JRT-CRM',
       cat: 'Manufacturing IMS + CRM',
-      domain: 'jairoop.web.app',
-      url: 'https://jairoop.web.app',
-      desc: 'A complete manufacturing IMS + CRM built for Jai Roop Textile Pvt Ltd — orders, production, dispatch, inventory, WhatsApp automation, HR and reporting in one live platform. Opens a secure sign-in screen.',
+      domain: 'Internal company portal',
+      desc: 'A complete manufacturing IMS + CRM built for Jai Roop Textile Pvt Ltd — orders, production, dispatch, inventory, WhatsApp automation, HR and reporting in one live platform. A private, internal company portal.',
       tags: ['Firebase', 'Node.js', 'Automation', 'CRM'],
       shots: ['shots/jrt-1.jpg', 'shots/jrt-2.jpg'],
+      img: 'shots/jrt-1.jpg',
       c1: '#2f7bf0', c2: '#153a86'
     },
     {
@@ -74,18 +74,16 @@
     {
       name: 'JRT WhatsApp Platform',
       cat: 'WhatsApp Automation',
-      domain: 'Google Cloud Run',
-      url: 'https://jrt-whatsapp-797126290529.asia-south1.run.app',
-      desc: 'A WhatsApp messaging platform that powers automated business notifications and customer messaging — built on the WhatsApp Business API and deployed on Google Cloud Run. Opens a secure passcode sign-in.',
+      domain: 'Internal company portal',
+      desc: 'A WhatsApp messaging platform that powers automated business notifications and customer messaging — built on the WhatsApp Business API and deployed on Google Cloud Run. A private, internal company portal.',
       tags: ['WhatsApp API', 'Node.js', 'Cloud Run'],
       img: 'shots/jrtwa-1.jpg'
     },
     {
       name: 'JRT Translator',
       cat: 'AI Translation App',
-      domain: 'jrt-translator.web.app',
-      url: 'https://jrt-translator.web.app',
-      desc: 'A web app that translates entire book PDFs into fluent Hindi — with an in-app reader, voice narration and a WhatsApp alert when a translation is ready. Sign in with a mobile OTP.',
+      domain: 'Internal company tool',
+      desc: 'A web app that translates entire book PDFs into fluent Hindi — with an in-app reader, voice narration and a WhatsApp alert when a translation is ready. A private, internal company tool.',
       tags: ['AI', 'PDF', 'Firebase'],
       img: 'shots/jrttranslator-1.jpg'
     },
