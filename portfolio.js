@@ -83,9 +83,10 @@
       name: 'JRT Translator',
       cat: 'AI Translation App',
       domain: 'Internal company tool',
-      desc: 'A web app that translates entire book PDFs into fluent Hindi — with an in-app reader, voice narration and a WhatsApp alert when a translation is ready. A private, internal company tool.',
+      desc: 'A web app that translates entire book PDFs into fluent Hindi — set up a new book, watch each page translate, then download the finished Hindi PDF, read it in-app or listen to it. A private, internal company tool.',
       tags: ['AI', 'PDF', 'Firebase'],
-      img: 'shots/jrttranslator-1.jpg'
+      images: ['shots/jrttr-1.jpg', 'shots/jrttr-2.jpg', 'shots/jrttr-3.jpg', 'shots/jrttr-4.jpg'],
+      img: 'shots/jrttr-4.jpg'
     },
     {
       name: 'JRT-Tele',
