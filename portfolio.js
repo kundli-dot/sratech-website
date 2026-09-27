@@ -54,6 +54,51 @@
       c1: '#10b981', c2: '#0e7a5f'
     },
     {
+      name: 'Polyester Tape',
+      cat: 'Product Website',
+      domain: 'polyestertape.in',
+      url: 'https://polyestertape.in',
+      desc: 'A focused product website for a polyester tape & webbing manufacturer — grade-by-grade technical specs, a one-line rate enquiry and a clean order flow. Designed and developed by SRATECH.',
+      tags: ['Product Website', 'Responsive', 'SEO'],
+      shots: ['shots/polytape-1.jpg', 'shots/polytape-2.jpg', 'shots/polytape-3.jpg']
+    },
+    {
+      name: 'Gross Grain Tape',
+      cat: 'Product Website',
+      domain: 'grossgrain.com',
+      url: 'https://grossgrain.com',
+      desc: 'A product website for a grosgrain & petersham ribbon manufacturer — custom-dyed ranges, technical specs and a quick quote request, built so buyers can order in one line.',
+      tags: ['Product Website', 'Responsive', 'SEO'],
+      shots: ['shots/grossgrain-1.jpg', 'shots/grossgrain-2.jpg', 'shots/grossgrain-3.jpg']
+    },
+    {
+      name: 'JRT WhatsApp Platform',
+      cat: 'WhatsApp Automation',
+      domain: 'Google Cloud Run',
+      url: 'https://jrt-whatsapp-797126290529.asia-south1.run.app',
+      desc: 'A WhatsApp messaging platform that powers automated business notifications and customer messaging — built on the WhatsApp Business API and deployed on Google Cloud Run. Opens a secure passcode sign-in.',
+      tags: ['WhatsApp API', 'Node.js', 'Cloud Run'],
+      img: 'shots/jrtwa-1.jpg'
+    },
+    {
+      name: 'JRT Translator',
+      cat: 'AI Translation App',
+      domain: 'jrt-translator.web.app',
+      url: 'https://jrt-translator.web.app',
+      desc: 'A web app that translates entire book PDFs into fluent Hindi — with an in-app reader, voice narration and a WhatsApp alert when a translation is ready. Sign in with a mobile OTP.',
+      tags: ['AI', 'PDF', 'Firebase'],
+      img: 'shots/jrttranslator-1.jpg'
+    },
+    {
+      name: 'JRT-Tele',
+      cat: 'Call Tracking App',
+      domain: 'Installable web app',
+      desc: 'A telecalling web app that automatically logs every call — per-agent stats, durations, customer lookup and call recordings — giving managers a live view of the calling team. Runs as an installable web app.',
+      tags: ['Web App', 'Call Tracking', 'Dashboard'],
+      shots: ['shots/jrttele-1.jpg', 'shots/jrttele-2.jpg'],
+      img: 'shots/jrttele-1.jpg'
+    },
+    {
       name: 'Crosia Lace Software',
       cat: 'Design Software',
       domain: 'Desktop application',
