@@ -149,6 +149,31 @@
     </div>
   </section>
 
+  <section style="padding:14px 0 6px;">
+    <div class="container">
+      <video id="heroVideo" src="intro.mp4" muted loop playsinline preload="metadata" controls aria-label="SRATECH introduction video" style="width:100%;max-width:960px;margin:0 auto;display:block;border-radius:18px;box-shadow:0 20px 50px rgba(20,30,45,.18);aspect-ratio:16/9;background:#0f1114;"></video>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var v = document.getElementById('heroVideo');
+      if (!v) return;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return; // respect reduced-motion: leave manual controls only
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { v.play().catch(function () {}); }
+            else { v.pause(); }
+          });
+        }, { threshold: 0.35 });
+        io.observe(v);
+      } else {
+        v.play().catch(function () {});
+      }
+    })();
+  </script>
+
   <section class="tech-strip" aria-label="Technologies we work with">
     <div class="marquee">
       <span>React</span><span>Next.js</span><span>Node.js</span><span>Python</span><span>.NET</span><span>Flutter</span><span>TypeScript</span><span>AWS</span><span>Docker</span><span>Kubernetes</span><span>PostgreSQL</span><span>Firebase</span>
