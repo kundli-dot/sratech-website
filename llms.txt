@@ -1,0 +1,48 @@
+# SRATECH
+
+> SRATECH is a software development company based in Delhi NCR, India, building custom websites, web and mobile apps, custom software, WhatsApp chatbots, AI automation and cloud/DevOps for businesses across India and internationally (US, UK, UAE, Australia). Clients own 100% of their source code — no vendor lock-in. Every website package includes 1 year of free domain and hosting plus 24×7 support.
+
+## Key facts
+
+- **What we do:** Website development, web & mobile app development, custom software, AI automation, WhatsApp chatbots, cloud & DevOps.
+- **Where:** Delhi NCR (Delhi, Gurgaon, Noida, Faridabad, Ghaziabad), serving all of India and remote clients worldwide.
+- **Starter website:** from ₹6,999, including 1 year free domain & hosting and 24×7 support.
+- **Mobile apps:** Basic app from ₹69,999; Business app from ₹1,49,999 (Android & iOS).
+- **Custom web app / software:** from ₹1,49,999, scoped after a short audit.
+- **E-commerce websites:** from ₹59,999.
+- **Code ownership:** On final payment, all source code, design files and repository access transfer to the client. No lock-in, no licence fees.
+- **Registration:** MSME · Udyam Registered — UDYAM-DL-10-0131847.
+- **Contact:** Email contact@sratech.net · Phone/WhatsApp +91 85889 30331.
+- **Website:** https://sratech.net/
+
+## Services
+
+- [Website Development](https://sratech.net/web-development/): Fast, SEO-ready business websites from ₹6,999 with free domain, hosting and support.
+- [Website Development in Gurgaon](https://sratech.net/website-development-company-gurgaon/): Local web development for Gurgaon businesses.
+- [Mobile App Development](https://sratech.net/app-development/): Android and iOS apps, from ₹69,999.
+- [Custom Software Development](https://sratech.net/custom-software-development/): Tailored platforms, CRMs, ERPs and internal tools.
+- [AI Automation](https://sratech.net/ai-automation/): WhatsApp chatbots, lead follow-up and workflow automation.
+- [Cloud & DevOps](https://sratech.net/cloud-devops/): Hosting, CI/CD, monitoring and scaling.
+- [Pricing](https://sratech.net/pricing/): Transparent, fixed-price packages with no hidden charges.
+- [Get a website @ ₹6,999](https://sratech.net/get-website/): Landing page for the starter website offer.
+
+## Guides and articles
+
+- [Website Development Cost in India (2026 Guide)](https://sratech.net/blog/website-development-cost-in-india/)
+- [Top 10 Website Development Companies in Delhi NCR (2026)](https://sratech.net/blog/top-website-development-companies-in-delhi-ncr/)
+- [E-commerce Website Development in India (2026 Guide)](https://sratech.net/blog/ecommerce-website-development-india/)
+- [How Much Does a Mobile App Cost in India? (2026)](https://sratech.net/blog/mobile-app-cost-in-india/)
+- [React vs WordPress: Which Is Right for Your Business Website?](https://sratech.net/blog/react-vs-wordpress/)
+- [How to Choose a Mobile App Developer in Delhi (2026)](https://sratech.net/blog/how-to-choose-app-developer-in-delhi/)
+- [Custom Software vs Off-the-Shelf](https://sratech.net/blog/custom-software-vs-off-the-shelf/)
+- [WhatsApp Chatbot for Business: How It Works & What It Costs](https://sratech.net/blog/whatsapp-chatbot-for-business/)
+- [AI Automation for Small Business: 6 Real Examples](https://sratech.net/blog/ai-automation-for-small-business/)
+- [Why Every Small Business Needs a Website in 2026](https://sratech.net/blog/why-small-business-needs-website/)
+- [Local SEO for Small Business (2026)](https://sratech.net/blog/local-seo-for-small-business/)
+
+## More
+
+- [About SRATECH](https://sratech.net/about.html)
+- [Portfolio](https://sratech.net/portfolio.html)
+- [Contact](https://sratech.net/contact.html)
+- [Blog](https://sratech.net/blog/)
